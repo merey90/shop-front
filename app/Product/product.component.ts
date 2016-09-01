@@ -8,17 +8,19 @@ import { ProductService } from './product.service';
   templateUrl: 'app/product/product.component.html'
 })
 export class ProductComponent implements OnInit{
-  products: Product[];
+  products: Product[] = [];
 
   constructor(
     private productService: ProductService
   ){}
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.getProducts();
   }
 
-  getProducts(){
-    this.productService.getProducts().then(products => this.products = products.json());
+  getProducts(): void{
+
+    this.productService.getProducts().then(products => this.products = products);
+    console.log(this.products);
   }
 }
