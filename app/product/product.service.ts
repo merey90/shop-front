@@ -8,11 +8,19 @@ import { Product } from './product';
 @Injectable()
 export class ProductService{
   private productsUrl = 'https://shop-backend-merey90.c9users.io/products';
+  private productsCarouselUrl = 'https://shop-backend-merey90.c9users.io/products/carousels';
 
   constructor(private http: Http) { }
 
   getProducts(): Promise<Product[]> {
     return this.http.get(this.productsUrl)
+               .toPromise()
+               .then(response => response.json() as Product[])
+               .catch(this.handleError);
+  }
+
+  getCarouselProducts(): Promise<Product[]> {
+    return this.http.get(this.productsCarouselUrl)
                .toPromise()
                .then(response => response.json() as Product[])
                .catch(this.handleError);

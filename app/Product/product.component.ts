@@ -19,8 +19,6 @@ export class ProductComponent implements OnInit{
   }
 
   getProducts(): void{
-
     this.productService.getProducts().then(products => this.products = products);
-    console.log(this.products);
   }
 }
