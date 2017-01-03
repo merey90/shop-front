@@ -1,0 +1,1 @@
+After some research, I found that ng-materialize is still in beta and not stable. So I will keep using bootstrap3. Also I found that angular-cli is very useful, and I decided to migrate my project to it.
