@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -151,12 +153,12 @@ body {
 }
 
 .gender-image.men{
-  background-image: url(assets/images/1.png);
+  background-image: url(../images/1.png);
   background-position: left;
 }
 
 .gender-image.women{
-  background-image: url(assets/images/2.png);
+  background-image: url(../images/2.png);
   background-position: right;
 }
 

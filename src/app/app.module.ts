@@ -11,6 +11,9 @@ import { ProductComponent } from './product/product.component';
 
 import { ProductService } from './product/product.service';
 
+import { CarouselModule } from 'ng2-bootstrap/carousel';
+import { CollapseModule } from 'ng2-bootstrap/collapse';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import { ProductService } from './product/product.service';
     BrowserModule,
     routing,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CarouselModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [
     ProductService
