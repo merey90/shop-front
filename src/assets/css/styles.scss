@@ -1,17 +1,12 @@
 @import "bootstrap";
-
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
 body {
   color: #5a5a5a;
 }
-
-
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
-
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
   position: absolute;
@@ -19,130 +14,89 @@ body {
   right: 0;
   left: 0;
   z-index: 20;
+
+  .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+
+    .navbar-brand {
+      padding-left: 50px;
+
+      > img {
+        position: absolute;
+        width: 35px;
+        top: 6px;
+        left: 13px;
+      }
+    }
+
+    .container {
+      width: auto;
+    }
+    @media (min-width: 768px) {
+      padding-right: 0;
+      padding-left: 0;
+      border-radius: 4px;
+    }
+  }
+
+  > .container {
+    padding-right: 0;
+    padding-left: 0;
+    @media (min-width: 768px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+  @media (min-width: 768px) {
+    margin-top: 20px;
+  }
 }
 
-.main-wrapper{
-  min-height:100%;
+.main-wrapper {
+  min-height: 100%;
   margin-top: -40px;
   padding-top: 113px;
 }
-
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  height: 500px;
-  margin-bottom: 20px;
-  margin-top: -73px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
-}
-
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
-
 /* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: normal;
-}
-.marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
+.marketing {
+  .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
 
+    p {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
 
+  h2 {
+    font-weight: normal;
+  }
+}
 /* Featurettes
 ------------------------- */
-
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 80px 0;
+  /* Space out the Bootstrap <hr> more */
 }
-
 /* Thin out the marketing headings */
 .featurette-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
-}
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 768px) {
-  /* Navbar positioning foo */
-  .navbar-wrapper {
-    margin-top: 20px;
-  }
-  .navbar-wrapper .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  .navbar-wrapper .navbar {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
-  }
-
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: 1.4;
-  }
-
-  .featurette-heading {
+  @media (min-width: 768px) {
     font-size: 50px;
   }
-}
-
-@media (min-width: 992px) {
-  .featurette-heading {
+  @media (min-width: 992px) {
     margin-top: 120px;
   }
 }
-
-
-.gender-image{
+/* BLOCKS CSS
+-------------------------------------------------- */
+.gender-image {
   position: relative;
   min-height: 380px;
   background-repeat: no-repeat;
@@ -150,52 +104,85 @@ body {
   overflow: hidden;
   cursor: pointer;
   color: #555;
+
+  &.men {
+    background-image: url("../images/1.png");
+    background-position: left;
+
+    p {
+      text-align: right;
+      background-color: rgba(51, 122, 183, 0.5);
+    }
+  }
+
+  &.women {
+    background-image: url("../images/2.png");
+    background-position: right;
+
+    p {
+      background-color: rgba(184, 51, 56, 0.5);
+    }
+  }
+
+  p {
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+    -webkit-transition: all 0.4s ease-out 0.1s;
+    -moz-transition: all 0.4s ease-out 0.1s;
+    -o-transition: all 0.4s ease-out 0.1s;
+    transition: all 0.4s ease-out 0.1s;
+  }
+
+  p:first-child {
+    font-size: 320%;
+    top: -100px;
+  }
+
+  p:last-child {
+    font-size: 200%;
+    bottom: -100px;
+  }
+
+  &:hover {
+    p:first-child {
+      top: 20px;
+    }
+
+    p:last-child {
+      bottom: 0;
+    }
+  }
 }
+/* Carousel base class */
+.home-carousel {
+  .carousel {
+    height: 500px;
+    margin-bottom: 20px;
+    margin-top: -73px;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    z-index: 10;
+    @media (min-width: 768px) {
+      p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+      }
+    }
+  }
+  /* Declare heights because of positioning of img element */
+  .carousel .item {
+    height: 500px;
+    background-color: #777;
+  }
 
-.gender-image.men{
-  background-image: url(../images/1.png);
-  background-position: left;
-}
-
-.gender-image.women{
-  background-image: url(../images/2.png);
-  background-position: right;
-}
-
-.gender-image p{
-  width: 100%;
-  position: absolute;
-  padding: 10px;
-  -webkit-transition: all 0.4s ease-out 0.1s;
-   -moz-transition: all 0.4s ease-out 0.1s;
-   -o-transition: all 0.4s ease-out 0.1s;
-   transition: all 0.4s ease-out 0.1s;
-}
-
-.gender-image.men p{
-  text-align: right;
-  background-color: rgba(51, 122, 183, 0.5);
-}
-
-.gender-image.women p{
-  background-color: rgba(184, 51, 56, 0.5);
-}
-
-.gender-image p:first-child{
-  font-size: 320%;
-  top: -100px;
-}
-
-.gender-image:hover p:first-child{
-  top: 20px;
-}
-
-.gender-image p:last-child{
-  font-size: 200%;
-  bottom:-100px;
-}
-
-
-.gender-image:hover p:last-child{
-  bottom:0px;
+  .carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+  }
 }

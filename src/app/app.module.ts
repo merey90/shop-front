@@ -13,12 +13,14 @@ import { ProductService } from './product/product.service';
 
 import { CarouselModule } from 'ng2-bootstrap/carousel';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
