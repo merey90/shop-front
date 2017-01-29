@@ -7,8 +7,8 @@ import { Product } from './product';
 
 @Injectable()
 export class ProductService {
-  private productsUrl = 'https://shop-backend-merey90.c9users.io/products';
-  private productsCarouselUrl = 'https://shop-backend-merey90.c9users.io/products/carousels';
+  private productsUrl = 'http://localhost:3000/products';
+  private productsCarouselUrl = 'http://localhost:3000/products/carousels';
 
   constructor(private http: Http) { }
 
