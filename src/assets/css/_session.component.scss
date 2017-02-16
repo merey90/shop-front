@@ -1,0 +1,11 @@
+.sign-in-form{
+  input{
+    min-width: 200px;
+  }
+  .form-group:last-child{
+    margin-bottom: 0px;
+  }
+  @media (min-width: $screen-sm-min) {
+    padding: $nav-link-padding;
+  }
+}

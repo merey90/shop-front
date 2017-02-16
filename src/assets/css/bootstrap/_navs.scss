@@ -19,11 +19,13 @@
     > a {
       position: relative;
       display: block;
-      padding: $nav-link-padding;
       &:hover,
       &:focus {
         text-decoration: none;
         background-color: $nav-link-hover-bg;
+      }
+      @media (min-width: $screen-sm-min) {
+        padding: $nav-link-padding;
       }
     }
 

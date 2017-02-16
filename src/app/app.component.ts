@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { SessionService } from './session/session.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  public isCollapsed:boolean = true;
+  constructor(private sessionService: SessionService) {
+    this.sessionService.init({
+      apiBase: 'http://localhost:3000'
+    });
+  }
+  public isCollapsed: boolean = true;
 }

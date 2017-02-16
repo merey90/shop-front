@@ -1,0 +1,64 @@
+import { Component, OnInit } from '@angular/core';
+import { SessionService } from './session.service';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-session',
+  templateUrl: './session.component.html'
+})
+export class SessionComponent implements OnInit {
+  loggedIn: boolean = false;
+  input_email = new FormControl('');
+  password = new FormControl('');
+  name: string = null;
+  email: string = null;
+
+  loginForm: FormGroup = this.builder.group({
+    email: this.input_email,
+    password: this.password
+  });
+
+  constructor(
+    private sessionService: SessionService,
+    private builder: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.loggedIn = this.sessionService.userSignedIn();
+    if (this.loggedIn) {
+      this.sessionService.validateToken().subscribe(
+        res => this.email = this.sessionService.currentUserData.email
+      );
+    }
+  }
+
+  signIn() {
+    this.sessionService.signIn(this.loginForm.value).subscribe(
+      res => {
+        this.loggedIn = true;
+        this.email = res.json().data.email;
+      },
+      error => console.log(error)
+    );
+  }
+
+  signOut() {
+    this.sessionService.signOut().subscribe(
+      res => console.log(res),
+      error => console.log(error)
+    );
+  }
+
+  showInfo(event) {
+    event.preventDefault();
+    console.log(this.sessionService.currentUserData);
+  }
+
+  checkRole(event) {
+    event.preventDefault();
+    console.log(this.sessionService.userHasRole('admin'));
+    console.log(this.sessionService.userHasRole('regular'));
+    console.log(this.sessionService.userHasRole('owner'));
+  }
+
+}

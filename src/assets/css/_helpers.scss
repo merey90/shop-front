@@ -1,0 +1,77 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  color: #5a5a5a;
+}
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+
+  .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+
+    .navbar-brand {
+      padding-left: 50px;
+
+      > img {
+        position: absolute;
+        width: 35px;
+        top: 6px;
+        left: 13px;
+      }
+    }
+
+    .container {
+      width: auto;
+    }
+    @media (min-width: 768px) {
+      padding-right: 0;
+      padding-left: 0;
+      border-radius: 4px;
+    }
+  }
+
+  > .container {
+    padding-right: 0;
+    padding-left: 0;
+    @media (min-width: 768px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+  @media (min-width: 768px) {
+    margin-top: 20px;
+  }
+}
+
+.main-wrapper {
+  min-height: 100%;
+  margin-top: -40px;
+  padding-top: 113px;
+}
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing {
+  .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+
+    p {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+
+  h2 {
+    font-weight: normal;
+  }
+}
