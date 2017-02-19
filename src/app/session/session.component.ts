@@ -56,9 +56,9 @@ export class SessionComponent implements OnInit {
 
   checkRole(event) {
     event.preventDefault();
-    console.log(this.sessionService.userHasRole('admin'));
-    console.log(this.sessionService.userHasRole('regular'));
-    console.log(this.sessionService.userHasRole('owner'));
+    console.log(this.sessionService.userHasRole('0'));
+    console.log(this.sessionService.userHasRole('1'));
+    console.log(this.sessionService.userHasRole('2'));
   }
 
 }

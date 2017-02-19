@@ -8,6 +8,8 @@ import { DropdownModule } from 'ng2-bootstrap/dropdown';
 
 import { routing } from './app.routing';
 
+import { UserSignupActivateGuard } from './user-signup/user-signup.activate-guard';
+
 import { CutdomainPipe } from './pipes/cutdomain.pipe';
 
 import { ProductService } from './product/product.service';
@@ -18,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 import { SessionComponent } from './session/session.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { SessionComponent } from './session/session.component';
     ProductComponent,
     UserComponent,
     SessionComponent,
-    CutdomainPipe
+    CutdomainPipe,
+    UserSignupComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { SessionComponent } from './session/session.component';
   ],
   providers: [
     SessionService,
-    ProductService
+    ProductService,
+    UserSignupActivateGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,8 +1,10 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-body {
+body,
+html {
   color: #5a5a5a;
+  height: 100%;
 }
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -55,7 +57,7 @@ body {
 .main-wrapper {
   min-height: 100%;
   margin-top: -40px;
-  padding-top: 113px;
+  padding-top: 131px;
 }
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -74,4 +76,11 @@ body {
   h2 {
     font-weight: normal;
   }
+}
+
+.validation-messages {
+  border-left: 5px solid $state-danger-text;
+  font-size: $font-size-small;
+  padding-left: 10px;
+  margin-top: 5px;
 }
