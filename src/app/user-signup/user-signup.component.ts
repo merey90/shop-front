@@ -43,6 +43,9 @@ export class UserSignupComponent implements OnInit {
   });
 
   formSubmitAttempt = false;
+  submitBtnDisabled = false;
+  formStatus = null;
+  formMessage = null;
 
   constructor(
     private sessionService: SessionService,
@@ -60,9 +63,19 @@ export class UserSignupComponent implements OnInit {
       this.formSubmitAttempt = true;
       return;
     }
+    this.submitBtnDisabled = true;
     this.sessionService.registerAccount(this.signupForm.value).subscribe(
-      res => console.log(res),
-      error => console.log(error)
+      res => {
+        this.formStatus = res.json().status;
+        this.formMessage = "Before signing-in please verify your email address at "+res.json().data.email+".";
+        this.submitBtnDisabled = false;
+      },
+      error => {
+        this.formStatus = error.json().status;
+        this.formMessage = '';
+        this.formMessage = error.json().errors.full_messages.map(err => this.formMessage+=err+". ");
+        this.submitBtnDisabled = false;
+      }
     );
   }
 
