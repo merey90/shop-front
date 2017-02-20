@@ -15,10 +15,11 @@ html {
   right: 0;
   left: 0;
   z-index: 20;
+  margin-top: $navbar-margin-top--mobile;
 
   .navbar {
-    padding-right: 15px;
-    padding-left: 15px;
+    margin-bottom: 0;
+    height: $navbar-height;
 
     .navbar-brand {
       padding-left: 50px;
@@ -34,9 +35,24 @@ html {
     .container {
       width: auto;
     }
-    @media (min-width: 768px) {
-      padding-right: 0;
-      padding-left: 0;
+
+    > .navbar-collapse {
+      background-color: #222;
+      border-radius: 0;
+
+      .navbar-nav {
+        > li > a {
+          padding: 10px 15px;
+          @media (min-width: $screen-sm-min) {
+            padding: 15px;
+          }
+        }
+      }
+      @media (min-width: $screen-sm-min) {
+        border-radius: 4px;
+      }
+    }
+    @media (min-width: $screen-sm-min) {
       border-radius: 4px;
     }
   }
@@ -44,38 +60,27 @@ html {
   > .container {
     padding-right: 0;
     padding-left: 0;
-    @media (min-width: 768px) {
+    @media (min-width: $screen-sm-min) {
       padding-right: 15px;
       padding-left: 15px;
     }
   }
-  @media (min-width: 768px) {
-    margin-top: 20px;
+  @media (min-width: $screen-sm-min) {
+    margin-top: $navbar-margin-top;
   }
 }
 
 .main-wrapper {
   min-height: 100%;
-  margin-top: -40px;
-  padding-top: 131px;
+  margin-top: $main-wrapper-margin-top;
+  padding-top: $main-wrapper-padding-top--mobile;
+  @media (min-width: $screen-sm-min) {
+    padding-top: $main-wrapper-padding-top;
+  }
 }
-/* MARKETING CONTENT
--------------------------------------------------- */
-/* Center align the text within the three columns below the carousel */
-.marketing {
-  .col-lg-4 {
-    margin-bottom: 20px;
-    text-align: center;
 
-    p {
-      margin-right: 10px;
-      margin-left: 10px;
-    }
-  }
-
-  h2 {
-    font-weight: normal;
-  }
+footer {
+  height: $footer-height;
 }
 
 .validation-messages {

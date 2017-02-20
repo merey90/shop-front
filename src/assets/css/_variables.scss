@@ -1,1 +1,10 @@
 $base-color: #FFABEA;
+$navbar-margin-top--mobile: 0;
+$navbar-margin-top: 20px;
+$navbar-height: 50px;
+$footer-height: 50px;
+$main-wrapper-margin-top: -$footer-height;
+$main-wrapper-padding-top--mobile: ($footer-height+$navbar-height+20px);
+$main-wrapper-padding-top: ($footer-height+$navbar-height+$navbar-margin-top+20px);
+$home-carousel-margin-top--mobile: -($main-wrapper-padding-top--mobile+$main-wrapper-margin-top);
+$home-carousel-margin-top: -($main-wrapper-padding-top+$main-wrapper-margin-top);

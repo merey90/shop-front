@@ -64,7 +64,10 @@
   .carousel {
     height: 500px;
     margin-bottom: 20px;
-    margin-top: -73px;
+    margin-top: $home-carousel-margin-top--mobile;
+    @media (min-width: $screen-sm-min) {
+      margin-top: $home-carousel-margin-top;
+    }
   }
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
