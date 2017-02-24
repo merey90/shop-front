@@ -5,6 +5,7 @@ import { UserSignupActivateGuard } from './user-signup/user-signup.activate-guar
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+import { UserConfirmationComponent } from './user-confirmation/user-confirmation.component';
 
 const appRoutes: Routes = [
   {

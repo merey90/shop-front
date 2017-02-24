@@ -1,6 +1,6 @@
 
 <ul class="nav navbar-nav navbar-right" >
-  <li class="dropdown" *ngIf="loggedIn" dropdown>
+  <li class="dropdown" *ngIf="sessionService.userSignedIn()" dropdown>
     <a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>{{ email | cutdomain }} <span class="caret"></span></a>
     <ul dropdownMenu aria-labelledby="simple-dropdown" class="dropdown-menu">
       <li><a href="#">Shopping Cart</a></li>
@@ -9,10 +9,10 @@
       <li><a href="" (click)="signOut($event)">Sign Out</a></li>
     </ul>
   </li>
-  <li routerLinkActive="active" *ngIf="!loggedIn">
+  <li routerLinkActive="active" *ngIf="!sessionService.userSignedIn()">
     <a routerLink="/users/sign-up">Sign Up</a>
   </li>
-  <li class="dropdown" *ngIf="!loggedIn" dropdown>
+  <li class="dropdown" *ngIf="!sessionService.userSignedIn()" dropdown>
     <a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>Sign In <span class="caret"></span></a>
     <ul dropdownMenu aria-labelledby="simple-dropdown" class="dropdown-menu">
       <li>

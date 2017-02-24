@@ -7,14 +7,14 @@ export class UserSignupActivateGuard implements CanActivate {
 
   private prevUrl: string = "/";
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   canActivate() {
     this.prevUrl = this.router.url;
     return true;
   }
 
-  getPrevUrl() :string{
-    return this.prevUrl;
+  getPrevFullUrl(): string {
+    return window.location.origin+this.prevUrl;
   }
 }

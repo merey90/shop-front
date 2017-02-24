@@ -39,13 +39,13 @@ export class UserSignupComponent implements OnInit {
     email: this.input_email,
     password: this.password,
     password_confirmation: this.password_confirm,
-    confirm_success_url: '/'
+    confirm_success_url: 'http://localhost:4200/users/sign-up'
   });
 
-  formSubmitAttempt = false;
-  submitBtnDisabled = false;
-  formStatus = null;
-  formMessage = null;
+  formSubmitAttempt :boolean = false;
+  submitBtnDisabled :boolean = false;
+  formStatus :string = null;
+  formMessage :string = null;
 
   constructor(
     private sessionService: SessionService,
@@ -55,7 +55,7 @@ export class UserSignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.signupForm.controls['confirm_success_url'].setValue(this.canActivate.getPrevUrl());
+    this.signupForm.controls['confirm_success_url'].setValue(this.canActivate.getPrevFullUrl());
   }
 
   submitRegister() {

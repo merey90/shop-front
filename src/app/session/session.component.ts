@@ -7,7 +7,6 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
   templateUrl: './session.component.html'
 })
 export class SessionComponent implements OnInit {
-  loggedIn: boolean = false;
   input_email = new FormControl('');
   password = new FormControl('');
   name: string = null;
@@ -24,18 +23,21 @@ export class SessionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loggedIn = this.sessionService.userSignedIn();
-    if (this.loggedIn) {
+    if (this.sessionService.userSignedIn()) {
       this.sessionService.validateToken().subscribe(
-        res => this.email = this.sessionService.currentUserData.email
+        res => this.email = this.sessionService.currentUserData.email,
+        error => console.log(error)
       );
     }
+
+    this.sessionService.email.filter(x => typeof x === "string").subscribe(
+      (email: string) => this.email = email
+    );
   }
 
   signIn() {
     this.sessionService.signIn(this.loginForm.value).subscribe(
       res => {
-        this.loggedIn = true;
         this.email = res.json().data.email;
       },
       error => console.log(error)

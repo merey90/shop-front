@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { CarouselModule } from 'ng2-bootstrap/carousel';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
+import { AlertModule } from 'ng2-bootstrap/alert';
 
 import { routing } from './app.routing';
 
@@ -21,6 +22,7 @@ import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 import { SessionComponent } from './session/session.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+import { UserConfirmationComponent } from './user-confirmation/user-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
     UserComponent,
     SessionComponent,
     CutdomainPipe,
-    UserSignupComponent
+    UserSignupComponent,
+    UserConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
     HttpModule,
     CarouselModule.forRoot(),
     CollapseModule.forRoot(),
-    DropdownModule.forRoot()
+    DropdownModule.forRoot(),
+    AlertModule.forRoot()
   ],
   providers: [
     SessionService,
