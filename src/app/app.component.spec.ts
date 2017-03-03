@@ -1,6 +1,9 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -9,6 +12,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        FlexLayoutModule.forRoot(),
+        MaterialModule.forRoot()
+      ]
     });
     TestBed.compileComponents();
   });

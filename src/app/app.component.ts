@@ -8,13 +8,14 @@ import { SessionService } from './session/session.service';
 })
 export class AppComponent {
   public isCollapsed: boolean = true;
+  title :string = "app works!";
 
   constructor(
-    private sessionService: SessionService
+    // private sessionService: SessionService
   ) {
-    this.sessionService.init({
-      apiBase: 'http://localhost:3000'
-    });
+    // this.sessionService.init({
+    //   apiBase: 'http://localhost:3000'
+    // });
   }
 
 }

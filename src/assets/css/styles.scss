@@ -1,8 +1,52 @@
-@import "bootstrap";
+// @import "bootstrap";
+@import "material.theme";
+@import 'material.icons';
 @import "variables";
-@import "helpers";
-@import "session.component";
-@import "home.component";
-@import "product.component";
-@import "user-signup.component";
-@import "user-confirmation.component";
+// @import "helpers";
+// @import "session.component";
+// @import "home.component";
+// @import "product.component";
+// @import "user-signup.component";
+// @import "user-confirmation.component";
+html,body{
+  height: 100%;
+  position: relative;
+  background-color: white;
+  margin: 0px;
+}
+.header {
+  min-height: 100px;
+  background-color: lightyellow;
+}
+.main-wrapper{
+  background-color:gray;
+  height: auto;
+}
+
+.content-wrapper{
+  background-color:purple;
+  height: auto;
+  // min-height: calc(100% - 180px);
+}
+.left {
+  background-color: lightblue;
+}
+
+.shopping-cart {
+  background-color: pink;
+  position: relative;
+  height: calc(100% - 180px);
+}
+
+.shopping-cart-button{
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width: 20px;
+}
+
+.footer{
+  background-color: lightgreen;
+  min-height: 80px;
+}

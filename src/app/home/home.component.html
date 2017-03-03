@@ -1,7 +1,7 @@
 <!-- Carousel
 ================================================== -->
-<carousel class="home-carousel">
-    <slide *ngFor="let carousel of carousels; let index = index">
+<div class="home-carousel">
+    <div *ngFor="let carousel of carousels; let index = index">
       <img class="first-slide" src="{{carousel.product_varieties[0].product_images[0].url}}" alt="First slide">
       <div class="container">
         <div class="carousel-caption">
@@ -10,8 +10,8 @@
           <p><a class="btn btn-lg btn-primary" href="#" role="button">Click!</a></p>
         </div>
       </div>
-    </slide>
-</carousel><!-- /.carousel -->
+    </div>
+</div><!-- /.carousel -->
 
 <div class="container">
 
