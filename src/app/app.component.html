@@ -1,29 +1,55 @@
-<div class="header" fxLayout="row" fxLayoutAlign="flex-end">
-  <md-icon>menu</md-icon>
-  <div class="navbar-brand">
-    Shop
-  </div>
-  <nav>
-    <ul>
-      <li>HOME</li>
-      <li>STORE</li>
-      <li>SEASON</li>
-    </ul>
-  </nav>
-</div>
+<md-sidenav-container class="example-sidenav-fab-container">
+  <md-sidenav #sidenav mode="over" opened="false" fxHide.md>
+    <nav>
+      <ul class="list-horizontal">
+        <li>HOME</li>
+        <li>STORE</li>
+        <li>SEASON</li>
+      </ul>
+    </nav>
+  </md-sidenav>
+  <button md-mini-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()">
+    <md-icon>shopping_cart</md-icon>
+  </button>
+  <div class="example-scrolling-content">
+    <md-toolbar>
+      <span>
+        <button md-button (click)="sidenav.toggle()">
+          <md-icon>menu</md-icon>
+        </button>
+         First Row
+      </span>
 
-<div class="content-wrapper" fxLayout="row" fxLayoutAlign="stretch stretch">
-  <div class="left" fxFlex>
-    LEFT: full wide
-  </div>
+      <md-toolbar-row>
+        <span>Second Row</span>
+      </md-toolbar-row>
 
-  <div class="shopping-cart" fxFlex.xs="20px" fxFlex.md="320px">
-    <button class="shopping-cart-button" fxHide.md md-button>
-      <md-icon>shopping_cart</md-icon>
-    </button>
+      <md-toolbar-row>
+        <span>Third Row</span>
+      </md-toolbar-row>
+    </md-toolbar>
+    <md-sidenav-container>
+      <div class="container">
+        Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor id
+        wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin, quis nisl massa
+        viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui, sapien consectetuer.
+      </div>
+      <md-sidenav #shoppingCart mode="push" opened="true" align="end">
+        <ul class="list-horizontal">
+          <li>ITEM 1</li>
+          <li>ITEM 2</li>
+          <li>ITEM 3</li>
+        </ul>
+      </md-sidenav>
+    </md-sidenav-container>
   </div>
+</md-sidenav-container>
 
-</div>
-<div class="footer" fxLayout="row" fxFlexAlign="bottom">
-  Copyright © 2017 Zhodas Merey Web Design. All Rights Reserved.
-</div>
+<footer class="footer" fxLayout="row" fxFlexAlign="bottom">
+  <span class="copyright">Copyright © 2017 Zhodas Merey Web Design. All Rights Reserved.</span>
+  <ul class="list-horizontal">
+    <li>about</li>
+    <li>contacts</li>
+    <li>terms & conditions</li>
+  </ul>
+</footer>

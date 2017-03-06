@@ -26,7 +26,7 @@ html,body{
 .content-wrapper{
   background-color:purple;
   height: auto;
-  // min-height: calc(100% - 180px);
+  min-height: calc(100% - 180px);
 }
 .left {
   background-color: lightblue;
@@ -49,4 +49,17 @@ html,body{
 .footer{
   background-color: lightgreen;
   min-height: 80px;
+}
+
+.list-horizontal{
+  list-style: none;
+  li{
+    float: left;
+  }
+}
+
+.shopping-cart-fab{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
