@@ -1,5 +1,101 @@
-.nav{
-  &.navbar-right{
-    //remove margin top on mobile view
+/* Layout */
+html {display: flex; flex-direction: column;} /* IE fix */
+body, app-root {
+  display: flex; /* crée un contexte flex pour ses enfants */
+  flex-direction: column; /* affichage vertical */
+  min-height: 100vh; /* toute la hauteur du viewport (compatible IE9+) */
+}
+.main-sidenav-container{
+  min-height: 100vh;
+  > .mat-sidenav-content{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
+}
+.wrapper {
+  display: block; /* IE fix */
+  flex: 1 1 auto; /* occupe la hauteur restante */
+  display: flex; /* crée un contexte flex pour ses enfants */
+  flex-direction: row; /* affichage horizontal */
+}
+nav {
+  width: 320px;
+}
+.content {
+  display: block; /* IE fix */
+  flex: 1; /* occupe la largeur restante */
+}
+.shopping-cart{
+  width: 220px;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+	body, app-root {
+    min-height: 0;
+  }
+	.wrapper {
+    flex-direction: column;
+  }
+	.content {
+		flex-basis: auto;
+	}
+  nav {
+    width: auto;
+    order: 1;
+  }
+}
+/* Decoration */
+header{
+  background-color: map-get($mat-blue, 500);
+}
+
+.nav-container{
+  display: flex;
+  flex-direction: row;
+}
+
+body {
+	margin: 0;
+	background: #fff;
+	font-family: "Noto";
+	font-size: 1.1em;
+}
+header, nav, footer {
+	padding: 10px;
+	margin: 0;
+	border: 2px solid #fff;
+	color: #fff;
+}
+nav {
+	background: orange;
+}
+footer {
+	background: olivedrab;
+  text-align: center;
+}
+
+.nav-menu-button{
+  padding: 0px !important;
+  min-width: 50px !important;
+  cursor: pointer;
+}
+
+.list-horizontal{
+  list-style: none;
+  li{
+    float: left;
+  }
+}
+
+.shopping-cart-fab{
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+}
+
+.main-content{
+  background-color: yellow;
 }

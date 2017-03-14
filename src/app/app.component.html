@@ -1,5 +1,5 @@
 <md-sidenav-container class="main-sidenav-container">
-  <md-sidenav #sidenav mode="over" opened="false" fxHide.md>
+  <md-sidenav #sidenav mode="push" opened="false" fxHide fxShow.xs>
     <nav role="navigation">
       <ul class="">
         <li>HOME</li>
@@ -10,12 +10,22 @@
   </md-sidenav>
 
   <header>
-    <h1>
-      <button md-button class="nav-menu-button" (click)="sidenav.toggle()">
-        <md-icon>menu</md-icon>
-      </button>
-       Knack!
-    </h1>
+    <div class="nav-container">
+      <span class="brand">
+        <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
+          <md-icon>menu</md-icon>
+        </button>
+         Knack! ₸
+      </span>
+      <nav class="nav-links" role="navigation">
+        <ul class="list-horizontal">
+          <li>HOME &#x20b8; &#8376; </li>
+          <li>STORE</li>
+          <li>SEASON</li>
+          <li>{{meddia}}</li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <div class="wrapper">
@@ -24,9 +34,12 @@
         Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor id
         wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin, quis nisl massa
         viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui, sapien consectetuer.
+        <p>
+          <input type="text"/>
+        </p>
       </div>
 
-      <md-sidenav #shoppingCart mode="side" opened="true" align="end">
+      <md-sidenav #shoppingCart mode="push" opened="false" align="end">
         <ul class="shopping-cart">
           <li>ITEM 1</li>
           <li>ITEM 2</li>
