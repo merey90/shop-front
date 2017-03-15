@@ -19,9 +19,6 @@ body, app-root {
   display: flex; /* crée un contexte flex pour ses enfants */
   flex-direction: row; /* affichage horizontal */
 }
-nav {
-  width: 320px;
-}
 .content {
   display: block; /* IE fix */
   flex: 1; /* occupe la largeur restante */
@@ -31,7 +28,6 @@ nav {
 }
 
 /* Responsive */
-
 @media (max-width: 640px) {
 	body, app-root {
     min-height: 0;
@@ -49,7 +45,7 @@ nav {
 }
 /* Decoration */
 header{
-  background-color: map-get($mat-blue, 500);
+  background-color: map-get($primary, 500);
 }
 
 .nav-container{
@@ -63,18 +59,18 @@ body {
 	font-family: "Noto";
 	font-size: 1.1em;
 }
-header, nav, footer {
+
+button, input, optgroup, select, textarea{
+  font-family: "Noto";
+}
+
+header, footer {
 	padding: 10px;
 	margin: 0;
-	border: 2px solid #fff;
-	color: #fff;
-}
-nav {
-	background: orange;
+  color: map-get(map-get($primary, "contrast"), 500);
 }
 footer {
-	background: olivedrab;
-  text-align: center;
+	background: map-get($primary, 500);
 }
 
 .nav-menu-button{
@@ -85,6 +81,7 @@ footer {
 
 .list-horizontal{
   list-style: none;
+  margin: 0px;
   li{
     float: left;
   }
@@ -92,10 +89,21 @@ footer {
 
 .shopping-cart-fab{
   position: fixed !important;
-  bottom: 20px;
+  bottom: 60px;
   right: 20px;
 }
 
-.main-content{
-  background-color: yellow;
+.main-container{
+  padding: 15px;
+}
+
+md-card{
+  margin-bottom: 15px;
+}
+
+.nav-brand{
+}
+
+.nav-links{
+  flex: 1 1 auto;
 }

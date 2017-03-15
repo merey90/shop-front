@@ -12,13 +12,13 @@ export class AppComponent implements OnInit{
   @ViewChild('shoppingCart') shoppingCart: MdSidenav;
   meddia :string = "";
   sub: any;
-
+  currentYear: number = 2017;
 
   constructor(
     // private sessionService: SessionService
     public media:ObservableMedia
   ) {
-
+    this.currentYear = new Date().getFullYear();
     // this.sessionService.init({
     //   apiBase: 'http://localhost:3000'
     // });

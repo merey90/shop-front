@@ -11,33 +11,46 @@
 
   <header>
     <div class="nav-container">
-      <span class="brand">
-        <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
-          <md-icon>menu</md-icon>
-        </button>
-         Knack! ₸
+      <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
+        <md-icon>menu</md-icon>
+      </button>
+      <span class="nav-brand text-display-1">
+         Knack!
       </span>
-      <nav class="nav-links" role="navigation">
+      <nav class="nav-links" role="navigation" fxHide.xs>
         <ul class="list-horizontal">
-          <li>HOME &#x20b8; &#8376; </li>
-          <li>STORE</li>
-          <li>SEASON</li>
-          <li>{{meddia}}</li>
+          <li><a md-button routerLink=".">Products</a></li>
+          <li><a md-button routerLink=".">Contacts</a></li>
+        </ul>
+      </nav>
+      <nav class="session-links" role="navigation" fxHide.xs>
+        <ul class="list-horizontal">
+          <li><a md-button routerLink=".">Products</a></li>
+          <li><a md-button routerLink=".">Contacts</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <div class="wrapper">
-    <md-sidenav-container>
-      <div class="main-container">
+    <md-sidenav-container class="main-container">
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
+      <md-card>Simple card</md-card>
         Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor id
         wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin, quis nisl massa
         viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui, sapien consectetuer.
         <p>
           <input type="text"/>
         </p>
-      </div>
 
       <md-sidenav #shoppingCart mode="push" opened="false" align="end">
         <ul class="shopping-cart">
@@ -50,9 +63,9 @@
 
   </div> <!-- /wrapper -->
 
-  <footer>Hopla le pied de pache !</footer>
+  <footer>Copyright © {{currentYear}} Design Shack</footer>
 
 </md-sidenav-container>
-<button md-mini-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()">
+<button md-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()">
   <md-icon>shopping_cart</md-icon>
 </button>
