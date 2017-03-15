@@ -46,11 +46,9 @@ body, app-root {
 /* Decoration */
 header{
   background-color: map-get($primary, 500);
-}
-
-.nav-container{
-  display: flex;
-  flex-direction: row;
+  color: map-get(map-get($primary, "contrast"), 500);
+  margin: 0;
+  padding: 0px 15px;
 }
 
 body {
@@ -60,17 +58,21 @@ body {
 	font-size: 1.1em;
 }
 
+footer {
+	padding: 10px;
+	margin: 0;
+  background: map-get($primary, 500);
+  color: map-get(map-get($primary, "contrast"), 500);
+}
+
 button, input, optgroup, select, textarea{
   font-family: "Noto";
 }
 
-header, footer {
-	padding: 10px;
-	margin: 0;
-  color: map-get(map-get($primary, "contrast"), 500);
-}
-footer {
-	background: map-get($primary, 500);
+.nav-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .nav-menu-button{
@@ -99,6 +101,10 @@ footer {
 
 md-card{
   margin-bottom: 15px;
+}
+
+.nav{
+
 }
 
 .nav-brand{

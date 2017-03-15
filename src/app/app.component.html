@@ -17,13 +17,19 @@
       <span class="nav-brand text-display-1">
          Knack!
       </span>
-      <nav class="nav-links" role="navigation" fxHide.xs>
+      <nav class="nav nav-links" role="navigation" fxHide.xs>
         <ul class="list-horizontal">
           <li><a md-button routerLink=".">Products</a></li>
           <li><a md-button routerLink=".">Contacts</a></li>
         </ul>
       </nav>
-      <nav class="session-links" role="navigation" fxHide.xs>
+      <form class="form-horizontal search-form" [formGroup]="searchForm" (ngSubmit)="submitSearch()">
+        <input type="text" name="search"/>
+        <button md-button type="submit" class="search-btn">
+          <md-icon>search</md-icon>
+        </button>
+      </form>
+      <nav class="nav session-links" role="navigation" fxHide.xs>
         <ul class="list-horizontal">
           <li><a md-button routerLink=".">Products</a></li>
           <li><a md-button routerLink=".">Contacts</a></li>

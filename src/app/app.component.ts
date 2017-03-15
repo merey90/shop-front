@@ -1,8 +1,9 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { SessionService } from './session/session.service';
-
+import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MdSidenav } from '@angular/material/sidenav';
 import { ObservableMedia } from '@angular/flex-layout';
+
+import { SessionService } from './session/session.service';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,18 @@ export class AppComponent implements OnInit{
   meddia :string = "";
   sub: any;
   currentYear: number = 2017;
+  input_search = new FormControl('',[
+    Validators.required
+  ]);
+
+
+  searchForm: FormGroup = this.builder.group({
+    input_search: this.input_search
+  });
 
   constructor(
     // private sessionService: SessionService
+    private builder: FormBuilder,
     public media:ObservableMedia
   ) {
     this.currentYear = new Date().getFullYear();
@@ -35,6 +45,10 @@ export class AppComponent implements OnInit{
         this.shoppingCart.open();
       }
     });
+  }
+
+  submitSearch(){
+    return true;
   }
 
   showLog(){
