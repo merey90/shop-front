@@ -1,67 +1,111 @@
+@mixin text-display-4(){
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 128px;
+  letter-spacing: -5px;
+}
+
+@mixin text-display-3(){
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 64px;
+}
+
+@mixin text-display-2(){
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 64px;
+}
+
+@mixin text-display-1(){
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 52px;
+}
+
+@mixin text-headline(){
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 44px;
+}
+
+@mixin text-title(){
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 44px;
+}
+
+@mixin text-subhead(){
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@mixin text-menu(){
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+@mixin text-button(){
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+@mixin text-caption(){
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@mixin text-body(){
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
 .text-display-4 {
-    font-size: 112px;
-    font-weight: 300;
-    line-height: 128px;
-    letter-spacing: -5px;
+    @include text-display-4();
 }
 
 .text-display-3 {
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 64px;
+    @include text-display-3();
 }
 
 .text-display-2 {
-    font-size: 45px;
-    font-weight: 400;
-    line-height: 64px;
+    @include text-display-2();
 }
 
 .text-display-1 {
-    font-size: 34px;
-    font-weight: 400;
-    line-height: 52px;
+    @include text-display-1();
 }
 
 .text-headline {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 44px;
+    @include text-headline();
 }
 
 .text-title {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 44px;
+    @include text-title();
 }
 
 .text-subhead {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 32px;
+    @include text-subhead();
 }
 
 .text-menu {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 32px;
+    @include text-menu();
 }
 
 .text-button {
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-    line-height: 32px;
+    @include text-button();
 }
 
 .text-caption {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 32px;
+    @include text-caption();
 }
 
 .text-body {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 25px;
+    @include text-body();
 }

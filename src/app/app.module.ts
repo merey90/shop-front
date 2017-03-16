@@ -6,7 +6,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-// import { routing } from './app.routing';
+import { RouterModule }  from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 // import { UserSignupActivateGuard } from './user-signup/user-signup.activate-guard';
 //
@@ -16,7 +17,7 @@ import 'hammerjs';
 import { SessionService } from './session/session.service';
 
 import { AppComponent } from './app.component';
-// import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component';
 // import { ProductComponent } from './product/product.component';
 // import { UserComponent } from './user/user.component';
 // import { SessionComponent } from './session/session.component';
@@ -26,7 +27,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
-    // HomeComponent,
+    HomeComponent
     // ProductComponent,
     // UserComponent,
     // SessionComponent,
@@ -36,7 +37,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    // routing,
+    AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
     FlexLayoutModule.forRoot(),

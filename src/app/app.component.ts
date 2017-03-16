@@ -9,49 +9,49 @@ import { SessionService } from './session/session.service';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   @ViewChild('shoppingCart') shoppingCart: MdSidenav;
-  meddia :string = "";
-  sub: any;
   currentYear: number = 2017;
-  input_search = new FormControl('',[
+  input_search = new FormControl('', [
     Validators.required
   ]);
-
 
   searchForm: FormGroup = this.builder.group({
     input_search: this.input_search
   });
 
   constructor(
-    // private sessionService: SessionService
+    private sessionService: SessionService,
     private builder: FormBuilder,
-    public media:ObservableMedia
+    public media: ObservableMedia
   ) {
     this.currentYear = new Date().getFullYear();
-    // this.sessionService.init({
-    //   apiBase: 'http://localhost:3000'
-    // });
+    this.sessionService.init({
+      apiBase: 'http://localhost:3000'
+    });
   }
 
-  ngOnInit(){
-    this.sub = this.media.subscribe(params => {
-      this.meddia = params.mqAlias;
-      if(['xs','sm','md'].indexOf(this.meddia) >= 0){
+  ngOnInit() {
+    this.media.subscribe(params => {
+      if (['xs', 'sm', 'md'].indexOf(params.mqAlias) >= 0) {
         this.shoppingCart.mode = "push";
       }
-      else if(['lg','xl'].indexOf(this.meddia) >= 0){
+      else if (['lg', 'xl'].indexOf(params.mqAlias) >= 0) {
+        this.shoppingCart.mode = "side";
+        this.shoppingCart.open();
+      }
+      else {
         this.shoppingCart.mode = "side";
         this.shoppingCart.open();
       }
     });
   }
 
-  submitSearch(){
-    return true;
+  submitSearch() {
+    console.log(this.searchForm.value);
   }
 
-  showLog(){
+  showLog() {
     console.log("yoloo");
   }
 }

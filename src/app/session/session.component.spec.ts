@@ -9,20 +9,20 @@ describe('SessionComponent', () => {
   let component: SessionComponent;
   let fixture: ComponentFixture<SessionComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SessionComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SessionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ SessionComponent ]
+  //   })
+  //   .compileComponents();
+  // }));
+  //
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(SessionComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
+  //
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

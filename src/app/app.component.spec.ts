@@ -1,12 +1,21 @@
 /* tslint:disable:no-unused-variable */
+import { destroyPlatform } from '@angular/core';
 
 import { TestBed, async } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
+import { SessionService } from './session/session.service';
+import { MockSessionService } from "../testing/mocksession.service";
+
 describe('AppComponent', () => {
+  let fixture;
+
+  beforeEach(() => destroyPlatform());
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -14,14 +23,18 @@ describe('AppComponent', () => {
       ],
       imports: [
         FlexLayoutModule.forRoot(),
-        MaterialModule.forRoot()
+        MaterialModule.forRoot(),
+        ReactiveFormsModule
+      ],
+      providers: [
+        {provide: SessionService, useClass: MockSessionService}
       ]
     });
     TestBed.compileComponents();
   });
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));

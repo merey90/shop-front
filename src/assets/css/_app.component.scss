@@ -1,115 +1,211 @@
 /* Layout */
-html {display: flex; flex-direction: column;} /* IE fix */
-body, app-root {
-  display: flex; /* crée un contexte flex pour ses enfants */
-  flex-direction: column; /* affichage vertical */
-  min-height: 100vh; /* toute la hauteur du viewport (compatible IE9+) */
+html {
+  display: flex;
+  flex-direction: column;
 }
-.main-sidenav-container{
+/* IE fix */
+app-root,
+body {
+  display: flex;
+  /* crée un contexte flex pour ses enfants */
+  flex-direction: column;
+  /* affichage vertical */
   min-height: 100vh;
-  > .mat-sidenav-content{
+  /* toute la hauteur du viewport (compatible IE9+) */
+}
+
+.main-sidenav-container {
+  min-height: 100vh;
+
+  > .mat-sidenav-content {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 }
+
 .wrapper {
-  display: block; /* IE fix */
-  flex: 1 1 auto; /* occupe la hauteur restante */
-  display: flex; /* crée un contexte flex pour ses enfants */
-  flex-direction: row; /* affichage horizontal */
-}
-.content {
-  display: block; /* IE fix */
-  flex: 1; /* occupe la largeur restante */
-}
-.shopping-cart{
-  width: 220px;
+  display: block;
+  /* IE fix */
+  flex: 1 1 auto;
+  /* occupe la hauteur restante */
+  display: flex;
+  /* crée un contexte flex pour ses enfants */
+  flex-direction: row;
+  /* affichage horizontal */
 }
 
+.content {
+  display: block;
+  /* IE fix */
+  flex: 1;
+  /* occupe la largeur restante */
+}
+
+.shopping-cart {
+  width: 220px;
+}
 /* Responsive */
 @media (max-width: 640px) {
-	body, app-root {
+  app-root,
+  body {
     min-height: 0;
   }
-	.wrapper {
+
+  .wrapper {
     flex-direction: column;
   }
-	.content {
-		flex-basis: auto;
-	}
+
+  .content {
+    flex-basis: auto;
+  }
+
   nav {
     width: auto;
     order: 1;
   }
 }
 /* Decoration */
-header{
+header {
   background-color: map-get($primary, 500);
   color: map-get(map-get($primary, "contrast"), 500);
   margin: 0;
-  padding: 0px 15px;
+  padding: 0 15px;
+  position: fixed;
+  top: 0;
+  height: $navbar-height;
+  left: 0;
+  right: 0;
 }
 
 body {
-	margin: 0;
-	background: #fff;
-	font-family: "Noto";
-	font-size: 1.1em;
+  margin: 0;
+  background: #fff;
+  font-family: "Noto";
+  font-size: 1.1em;
 }
 
 footer {
-	padding: 10px;
-	margin: 0;
+  padding: 10px;
+  margin: 0;
   background: map-get($primary, 500);
   color: map-get(map-get($primary, "contrast"), 500);
 }
 
-button, input, optgroup, select, textarea{
+button,
+input,
+optgroup,
+select,
+textarea {
   font-family: "Noto";
 }
 
-.nav-container{
+.mat-button,
+.mat-fab,
+.mat-icon-button,
+.mat-mini-fab,
+.mat-raised-button {
+  font-family: Roboto, "Noto" !important;
+}
+
+.nav-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: $navbar-height;
+  overflow: hidden;
+
+  .mat-button {
+    @include text-headline();
+  }
+
+  .nav-brand {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+
+    &.mat-button {
+      @include text-display-1();
+    }
+  }
+
+  .search-btn {
+    padding: 0 15px;
+    min-width: 0 !important;
+    border: 1px solid #607d8b;
+  }
+
+  .search-form {
+    background-color: map-get($primary, 200);
+    align-self: stretch;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0 15px;
+
+    .mat-input-wrapper {
+      padding-bottom: 0;
+      padding-top: 6px;
+    }
+  }
 }
 
-.nav-menu-button{
-  padding: 0px !important;
+.nav-menu-button {
+  padding: 0 !important;
   min-width: 50px !important;
   cursor: pointer;
 }
 
-.list-horizontal{
+.list-horizontal {
   list-style: none;
-  margin: 0px;
-  li{
+  margin: 0;
+  padding-left: 0;
+
+  li {
     float: left;
   }
 }
 
-.shopping-cart-fab{
+.shopping-cart-fab {
   position: fixed !important;
   bottom: 60px;
   right: 20px;
 }
 
-.main-container{
-  padding: 15px;
+.wrapper {
+  padding-top: $navbar-height;
 }
 
-md-card{
+.main-container {
+  padding: 15px;
+  flex: 1 1 auto;
+}
+
+md-card {
   margin-bottom: 15px;
 }
 
-.nav{
+.nav {
+  align-self: stretch;
 
+  li,
+  ul {
+    height: 100%;
+  }
+
+  li > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 }
 
-.nav-brand{
+.main-sidenav {
+  padding-top: 63px;
+  width: 320px;
 }
 
-.nav-links{
+.nav-links {
   flex: 1 1 auto;
 }

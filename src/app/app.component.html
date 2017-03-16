@@ -1,5 +1,5 @@
 <md-sidenav-container class="main-sidenav-container">
-  <md-sidenav #sidenav mode="push" opened="false" fxHide fxShow.xs>
+  <md-sidenav #sidenav class="main-sidenav" mode="push" opened="false" fxHide fxShow.xs>
     <nav role="navigation">
       <ul class="">
         <li>HOME</li>
@@ -9,54 +9,9 @@
     </nav>
   </md-sidenav>
 
-  <header>
-    <div class="nav-container">
-      <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
-        <md-icon>menu</md-icon>
-      </button>
-      <span class="nav-brand text-display-1">
-         Knack!
-      </span>
-      <nav class="nav nav-links" role="navigation" fxHide.xs>
-        <ul class="list-horizontal">
-          <li><a md-button routerLink=".">Products</a></li>
-          <li><a md-button routerLink=".">Contacts</a></li>
-        </ul>
-      </nav>
-      <form class="form-horizontal search-form" [formGroup]="searchForm" (ngSubmit)="submitSearch()">
-        <input type="text" name="search"/>
-        <button md-button type="submit" class="search-btn">
-          <md-icon>search</md-icon>
-        </button>
-      </form>
-      <nav class="nav session-links" role="navigation" fxHide.xs>
-        <ul class="list-horizontal">
-          <li><a md-button routerLink=".">Products</a></li>
-          <li><a md-button routerLink=".">Contacts</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <div class="wrapper">
     <md-sidenav-container class="main-container">
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-      <md-card>Simple card</md-card>
-        Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor id
-        wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin, quis nisl massa
-        viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui, sapien consectetuer.
-        <p>
-          <input type="text"/>
-        </p>
+      <router-outlet></router-outlet>
 
       <md-sidenav #shoppingCart mode="push" opened="false" align="end">
         <ul class="shopping-cart">
@@ -67,11 +22,43 @@
       </md-sidenav>
     </md-sidenav-container>
 
-  </div> <!-- /wrapper -->
+  </div>
+  <!-- /wrapper -->
 
-  <footer>Copyright © {{currentYear}} Design Shack</footer>
+  <footer>Copyright © {{currentYear}} Design Merey Zholdas</footer>
 
 </md-sidenav-container>
-<button md-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()">
+<button mdTooltip="Shopping Cart" md-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()" fxHide.lg fxHide.xl>
   <md-icon>shopping_cart</md-icon>
 </button>
+<header>
+  <div class="nav-container">
+    <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
+      <md-icon>menu</md-icon>
+    </button>
+    <a md-button routerLink="." class="nav-brand text-display-1">
+       Knack!
+    </a>
+    <nav class="nav nav-links" role="navigation" fxHide.xs>
+      <ul class="list-horizontal">
+        <li><a md-button routerLink=".">Products</a></li>
+        <li><a md-button routerLink=".">Contacts</a></li>
+      </ul>
+    </nav>
+    <form fxHide.xs class="form-horizontal search-form" [formGroup]="searchForm" (ngSubmit)="submitSearch()">
+      <md-input-container dividerColor="accent.a400" class="example-full-width">
+        <input mdInput placeholder="Search..." type="text" [formControl]="input_search" />
+      </md-input-container>
+
+      <button color="primary" md-button type="submit" class="search-btn">
+        <md-icon>search</md-icon>
+      </button>
+    </form>
+    <nav class="nav session-links" role="navigation" fxHide.xs>
+      <ul class="list-horizontal">
+        <li><a md-button routerLink=".">Sign up</a></li>
+        <li><a md-button routerLink=".">Log in</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
