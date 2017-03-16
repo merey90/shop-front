@@ -42,7 +42,7 @@ body {
   /* occupe la largeur restante */
 }
 
-.shopping-cart {
+.shopping-cart-sidenav {
   width: 220px;
 }
 /* Responsive */
@@ -133,7 +133,7 @@ textarea {
   .search-btn {
     padding: 0 15px;
     min-width: 0 !important;
-    border: 1px solid #607d8b;
+    border: 1px solid map-get($primary, 500);
   }
 
   .search-form {
@@ -148,6 +148,10 @@ textarea {
       padding-bottom: 0;
       padding-top: 6px;
     }
+  }
+
+  .session-links{
+    min-width: 205px;
   }
 }
 
