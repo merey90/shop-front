@@ -1,15 +1,18 @@
-/* tslint:disable:no-unused-variable */
 import { destroyPlatform } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { TestBed, async } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
 import { SessionService } from './session/session.service';
-import { MockSessionService } from "../testing/mocksession.service";
+import { MockSessionService } from '../testing/mocksession.service';
+import { RouterLinkStubDirective } from '../testing/router-stubs';
+import { RouterOutletStubComponent } from '../testing/router-stubs';
 
 describe('AppComponent', () => {
   let fixture;
@@ -19,7 +22,8 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RouterLinkStubDirective, RouterOutletStubComponent
       ],
       imports: [
         FlexLayoutModule.forRoot(),
@@ -27,7 +31,8 @@ describe('AppComponent', () => {
         ReactiveFormsModule
       ],
       providers: [
-        {provide: SessionService, useClass: MockSessionService}
+        { provide: SessionService, useClass: MockSessionService }
+        // { provide: APP_BASE_HREF, useValue: '/' }
       ]
     });
     TestBed.compileComponents();
@@ -35,7 +40,7 @@ describe('AppComponent', () => {
 
   it('should create the app', async(() => {
     fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
+    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
