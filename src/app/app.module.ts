@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
-import { RouterModule }  from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 // import { UserSignupActivateGuard } from './user-signup/user-signup.activate-guard';

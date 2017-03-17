@@ -34,14 +34,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.media.subscribe(params => {
       if (['xs', 'sm', 'md'].indexOf(params.mqAlias) >= 0) {
-        this.shoppingCart.mode = "push";
-      }
-      else if (['lg', 'xl'].indexOf(params.mqAlias) >= 0) {
-        this.shoppingCart.mode = "side";
+        this.shoppingCart.mode = 'push';
+      } else if (['lg', 'xl'].indexOf(params.mqAlias) >= 0) {
+        this.shoppingCart.mode = 'side';
         this.shoppingCart.open();
-      }
-      else {
-        this.shoppingCart.mode = "side";
+      } else {
+        this.shoppingCart.mode = 'side';
         this.shoppingCart.open();
       }
     });
@@ -52,6 +50,6 @@ export class AppComponent implements OnInit {
   }
 
   showLog() {
-    console.log("yoloo");
+    console.log('yoloo');
   }
 }

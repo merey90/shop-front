@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../product/product';
+// import { Product } from '../models/product';
 // import { ProductService } from '../product/product.service';
 
 @Component({
@@ -8,16 +8,16 @@ import { Product } from '../product/product';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  carousels: Product[] = [];
+  // carousels: Product[] = [];
   yoloo: string;
   constructor() { }
 
   ngOnInit() {
-    this.yoloo = "asd";
+    this.yoloo = 'asd';
   }
 
-  getCarousels(): void{
-    this.yoloo = "hello";
+  getCarousels(): void {
+    this.yoloo = 'hello';
   }
 
 }

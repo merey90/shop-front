@@ -1,25 +1,28 @@
- // export for convenience.
-export { ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router';
+// export for convenience.
+export { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 import { Component, Directive, Injectable, Input } from '@angular/core';
 import { NavigationExtras } from '@angular/router';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[routerLink]',
+  // tslint:disable-next-line:use-host-property-decorator
   host: {
     '(click)': 'onClick()'
   }
 })
 export class RouterLinkStubDirective {
-  @Input('routerLink') linkParams: any;
+  @Input('routerLink') routerLink: any;
   navigatedTo: any = null;
 
   onClick() {
-    this.navigatedTo = this.linkParams;
+    this.navigatedTo = this.routerLink;
   }
 }
 
-@Component({selector: 'router-outlet', template: ''})
+// tslint:disable-next-line:component-selector
+@Component({ selector: 'router-outlet', template: '' })
 export class RouterOutletStubComponent { }
 
 @Injectable()
