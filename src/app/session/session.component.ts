@@ -30,7 +30,7 @@ export class SessionComponent implements OnInit {
       );
     }
 
-    this.sessionService.email.filter(x => typeof x === "string").subscribe(
+    this.sessionService.email.filter(x => typeof x === 'string').subscribe(
       (email: string) => this.email = email
     );
   }

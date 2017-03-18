@@ -1,6 +1,7 @@
 import { destroyPlatform } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,9 +15,9 @@ import { RouterLinkStubDirective } from '../testing/router-stubs';
 import { RouterOutletStubComponent } from '../testing/router-stubs';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
-  let sessionService: MockSessionService;
+  let fixture;
+
+  beforeEach(() => destroyPlatform());
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -31,28 +32,17 @@ describe('AppComponent', () => {
       ],
       providers: [
         { provide: SessionService, useClass: MockSessionService }
+        // { provide: APP_BASE_HREF, useValue: '/' }
       ]
-    })
-      .compileComponents()
-      .then(() => {
-        fixture = TestBed.createComponent(AppComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-      });
+    });
+    TestBed.compileComponents();
   });
 
   it('should create the app', async(() => {
-    expect(component).toBeTruthy();
-  }));
-
-  it('can instantiate it', () => {
-    expect(component).not.toBeNull();
-  });
-
-  it('shoild init sessionService with apiBase', async(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
     fixture.detectChanges();
-    sessionService = TestBed.get(SessionService);
-    expect(sessionService.getApiBase()).toEqual('http://localhost:3000');
+    expect(app).toBeTruthy();
   }));
 
   // it(`should have as title 'app works!'`, async(() => {

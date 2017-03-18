@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class UserSignupActivateGuard implements CanActivate {
 
-  private prevUrl: string = "/";
+  private prevUrl: string = '/';
 
   constructor(private router: Router) { }
 
@@ -15,6 +15,6 @@ export class UserSignupActivateGuard implements CanActivate {
   }
 
   getPrevFullUrl(): string {
-    return window.location.origin+this.prevUrl;
+    return window.location.origin + this.prevUrl;
   }
 }

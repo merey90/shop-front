@@ -16,17 +16,20 @@ export class SessionService extends Angular2TokenService {
     return role === this.currentUserData['role'];
   };
 
-  registerAccount(registerData: RegisterData): Observable<Response>{
+  registerAccount(registerData: RegisterData): Observable<Response> {
     let confirm_success_url = 'http://localhost:4200/users/sign-up';
-    if(registerData['confirm_success_url'] != null && typeof registerData['confirm_success_url'] != undefined && registerData['confirm_success_url'].length > 0){
+    if (
+      registerData['confirm_success_url'] != null
+      && typeof registerData['confirm_success_url'] !== 'undefined'
+      && registerData['confirm_success_url'].length > 0) {
       confirm_success_url = registerData['confirm_success_url'];
     }
-    var body = JSON.stringify({
-        email: registerData.email,
-        password: registerData.password,
-        password_confirmation: registerData.passwordConfirmation,
-        confirm_success_url: confirm_success_url
+    const body = JSON.stringify({
+      email: registerData.email,
+      password: registerData.password,
+      password_confirmation: registerData.passwordConfirmation,
+      confirm_success_url: confirm_success_url
     });
-    return this.post("auth", body);
+    return this.post('auth', body);
   }
 }

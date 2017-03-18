@@ -20,20 +20,20 @@ function duplicatePassword(input: FormControl) {
 export class UserSignupComponent implements OnInit {
   EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
   PASSWORD_REGEXP = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
-  input_email = new FormControl('',[
+  input_email = new FormControl('', [
     Validators.required,
     Validators.pattern(this.EMAIL_REGEXP)
   ]);
-  password = new FormControl('',[
+  password = new FormControl('', [
     Validators.required,
     Validators.minLength(8),
     Validators.pattern(this.PASSWORD_REGEXP)
   ]);
-  password_confirm = new FormControl('',[
+  password_confirm = new FormControl('', [
     Validators.required,
     duplicatePassword
   ]);
-  //example@host.domain
+  // example@host.domain
 
   signupForm: FormGroup = this.builder.group({
     email: this.input_email,
@@ -42,10 +42,10 @@ export class UserSignupComponent implements OnInit {
     confirm_success_url: 'http://localhost:4200/users/sign-up'
   });
 
-  formSubmitAttempt :boolean = false;
-  submitBtnDisabled :boolean = false;
-  formStatus :string = null;
-  formMessage :string = null;
+  formSubmitAttempt: boolean = false;
+  submitBtnDisabled: boolean = false;
+  formStatus: string = null;
+  formMessage: string = null;
 
   constructor(
     private sessionService: SessionService,
@@ -59,7 +59,7 @@ export class UserSignupComponent implements OnInit {
   }
 
   submitRegister() {
-    if(!this.signupForm.valid){
+    if (!this.signupForm.valid) {
       this.formSubmitAttempt = true;
       return;
     }
@@ -67,19 +67,19 @@ export class UserSignupComponent implements OnInit {
     this.sessionService.registerAccount(this.signupForm.value).subscribe(
       res => {
         this.formStatus = res.json().status;
-        this.formMessage = "Before signing-in please verify your email address at "+res.json().data.email+".";
+        this.formMessage = 'Before signing-in please verify your email address at ' + res.json().data.email + '.';
         this.submitBtnDisabled = false;
       },
       error => {
         this.formStatus = error.json().status;
         this.formMessage = '';
-        this.formMessage = error.json().errors.full_messages.map(err => this.formMessage+=err+". ");
+        this.formMessage = error.json().errors.full_messages.map(err => this.formMessage += err + '. ');
         this.submitBtnDisabled = false;
       }
     );
   }
 
-  cancel(){
+  cancel() {
     this.location.back();
   }
 }
