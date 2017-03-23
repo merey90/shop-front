@@ -1,5 +1,6 @@
 import { destroyPlatform } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
+import { } from 'jasmine';
 
 import { TestBed, async } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -40,21 +41,22 @@ describe('AppComponent', () => {
 
   it('should create the app', async(() => {
     fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+    const component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   }));
 
-  // it(`should have as title 'app works!'`, async(() => {
-  //   let fixture = TestBed.createComponent(AppComponent);
-  //   let app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('app works!');
-  // }));
-  //
-  // it('should render title in a h1 tag', async(() => {
-  //   let fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   let compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  // }));
+  it('should set copyright year to current', async(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.debugElement.componentInstance;
+    fixture.detectChanges();
+    expect(component.currentYear).toEqual(new Date().getFullYear());
+  }));
+
+  it('should render year in a footer span tag', async(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('footer span.current-year').textContent).toContain(new Date().getFullYear());
+  }));
 });
