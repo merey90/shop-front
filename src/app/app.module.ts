@@ -10,10 +10,10 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 // import { UserSignupActivateGuard } from './user-signup/user-signup.activate-guard';
-//
+
 // import { CutdomainPipe } from './pipes/cutdomain.pipe';
-//
-// import { ProductService } from './product/product.service';
+
+import { ProductService } from './product/product.service';
 import { SessionService } from './session/session.service';
 
 import { AppComponent } from './app.component';
@@ -45,7 +45,7 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [
     SessionService,
-    // ProductService,
+    ProductService,
     // UserSignupActivateGuard
   ],
   bootstrap: [AppComponent]
