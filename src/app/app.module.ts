@@ -41,7 +41,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpModule,
     FlexLayoutModule.forRoot(),
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
   ],
   providers: [
     SessionService,

@@ -1,3 +1,4 @@
+import { ProductModule } from './product/product.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -17,11 +18,11 @@ import { HomeComponent } from './home/home.component';
       {
         path: 'home',
         component: HomeComponent
-      }
-      // {
-      //   path: 'product',
-      //   component: ProductComponent
-      // },
+      },
+      {
+        path: 'products',
+        loadChildren: 'app/product/product.module#ProductModule'
+      },
       // {
       //   path: 'users/sign-up',
       //   canActivate: [UserSignupActivateGuard],
