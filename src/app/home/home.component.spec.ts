@@ -33,4 +33,9 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render hello world in md-card tag', ()=>{
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('md-card').textContent).toContain('Hello World!');
+  });
 });

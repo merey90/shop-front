@@ -13,11 +13,11 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.yoloo = 'asd';
+    this.yoloo = 'Hello World!';
   }
 
-  getCarousels(): void {
-    this.yoloo = 'hello';
-  }
+  // getCarousels(): void {
+  //   this.yoloo = 'hello';
+  // }
 
 }
