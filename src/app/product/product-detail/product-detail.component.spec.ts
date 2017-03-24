@@ -1,9 +1,11 @@
 import { MockProductService } from './../../../testing/mockproduct.service';
 import { ProductService } from './../product.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
-import { RouterLinkStubDirective } from './../../../testing/router-stubs';
-import { RouterOutletStubComponent } from './../../../testing/router-stubs';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '@angular/material';
+
+import { Router, ActivatedRoute, ActivatedRouteStub, RouterStub } from './../../../testing/router-stubs';
 
 import { ProductDetailComponent } from './product-detail.component';
 
@@ -14,12 +16,16 @@ describe('ProductDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ProductDetailComponent,
-        RouterLinkStubDirective,
-        RouterOutletStubComponent
+        ProductDetailComponent
       ],
       providers: [
-        { provide: ProductService, useClass: MockProductService }
+        { provide: ProductService, useClass: MockProductService },
+        { provide: ActivatedRoute, useClass: ActivatedRouteStub },
+        { provide: Router, useClass: RouterStub }
+      ],
+      imports: [
+        FlexLayoutModule.forRoot(),
+        MaterialModule.forRoot()
       ]
     })
       .compileComponents();
@@ -34,4 +40,8 @@ describe('ProductDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get product details', fakeAsync(() => {
+    expect(component.product.id).not.toBeNull();
+  }));
 });

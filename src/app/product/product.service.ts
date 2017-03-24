@@ -17,6 +17,12 @@ export class ProductService {
       .catch(this.handleError);
   }
 
+  getProduct(id: number): Observable<Product> {
+    return this.http.get(this.productsUrl + '/' + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     if (res.status < 200 || res.status >= 300) {
       throw new Error('Bad response status: ' + res.status);

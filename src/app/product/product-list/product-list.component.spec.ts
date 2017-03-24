@@ -46,8 +46,9 @@ describe('ProductListComponent', () => {
   });
 
   it('should navigate to selected product detail on click', fakeAsync(() => {
-    const expectedProduct = PRODUCTS[1];
-    const productContainer = fixture.debugElement.queryAll(By.css('.product-container')).map(de => de.nativeElement)[1];
+    const index = 1;
+    const expectedProduct = PRODUCTS[index];
+    const productContainer = fixture.debugElement.queryAll(By.css('.product-container')).map(de => de.nativeElement)[index];
     const router = fixture.debugElement.injector.get(Router);
     const navSpy: jasmine.Spy = spyOn(router, 'navigate');
     productContainer.dispatchEvent(newEvent('click'));

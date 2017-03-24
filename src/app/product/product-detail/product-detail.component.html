@@ -1,3 +1,12 @@
-<p>
-  product-detail works!
-</p>
+<md-card *ngIf="product">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{product.title}}</md-card-title>
+    <md-card-subtitle>{{product.price}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      {{product.description}}
+    </p>
+  </md-card-content>
+</md-card>

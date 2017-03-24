@@ -41,8 +41,8 @@
     </a>
     <nav class="nav nav-links" role="navigation" fxHide.xs>
       <ul class="list-horizontal">
-        <li><a md-button routerLink="products">Products</a></li>
-        <li><a md-button routerLink=".">Contacts</a></li>
+        <li routerLinkActive="active"><a md-button routerLink="products">Products</a></li>
+        <li routerLinkActive="active"><a md-button routerLink="contacts">Contacts</a></li>
       </ul>
     </nav>
     <form fxHide.xs class="form-horizontal search-form" [formGroup]="searchForm" (ngSubmit)="submitSearch()">

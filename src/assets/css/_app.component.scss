@@ -212,4 +212,10 @@ md-card {
 
 .nav-links {
   flex: 1 1 auto;
+  li.active{
+    a{
+      background-color: map-get($primary , 800);
+      color: map-get(map-get($primary, contrast), 800);
+    }
+  }
 }

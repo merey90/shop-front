@@ -32,8 +32,14 @@ export const PRODUCTS: Product[] = [
 
 export class MockProductService {
   products: Product[];
+  product: Product;
   getProducts(): Observable<Product[]> {
     this.products = PRODUCTS;
     return Observable.of(this.products);
+  }
+
+  getProduct(): Observable<Product> {
+    this.product = PRODUCTS[0];
+    return Observable.of(this.product);
   }
 }
