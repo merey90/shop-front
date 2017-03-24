@@ -1,4 +1,7 @@
-export class ProductColor{
-  code: string;
-  color: string;
+export class ProductColor {
+  constructor(
+    public id: number,
+    public code: string,
+    public color: string
+  ) { };
 }

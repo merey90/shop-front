@@ -1,4 +1,6 @@
-export class ProductSize{
-  id: number;
-  size: string;
+export class ProductSize {
+  constructor(
+    public id: number,
+    public size: string
+  ) { };
 }

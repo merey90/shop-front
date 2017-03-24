@@ -1,12 +1,14 @@
 import { ProductVariety } from './product-variety';
 
 export class Product {
-  id: number;
-  title: string;
-  description: string;
-  gender: boolean;
-  price: number;
-  sale: number;
-  serial: number;
-  product_varieties: ProductVariety[];
+  constructor(
+    public id: number,
+    public title: string,
+    public description: string,
+    public gender: boolean,
+    public price: number,
+    public sale: number,
+    public serial: number,
+    public product_varieties: ProductVariety[]
+  ) { };
 }

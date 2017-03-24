@@ -1,33 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
 
 import { Product } from '../models/product';
 
 @Injectable()
 export class ProductService {
-  private productsUrl = 'http://localhost:3000/products';
-  private productsCarouselUrl = 'http://localhost:3000/products/carousels';
+  private productsUrl: string = 'http://localhost:3000/products';
 
   constructor(private http: Http) { }
 
-  getProducts(): Promise<Product[]> {
+  getProducts(): Observable<Product[]> {
     return this.http.get(this.productsUrl)
-               .toPromise()
-               .then(response => response.json() as Product[])
-               .catch(this.handleError);
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
-  getCarouselProducts(): Promise<Product[]> {
-    return this.http.get(this.productsCarouselUrl)
-               .toPromise()
-               .then(response => response.json() as Product[])
-               .catch(this.handleError);
+  private extractData(res: Response) {
+    if (res.status < 200 || res.status >= 300) {
+      throw new Error('Bad response status: ' + res.status);
+    }
+    // tslint:disable-next-line:prefer-const
+    let body = res.json();
+    // return body.data || { };
+    return body || {};
   }
 
-  private handleError(error: any): Promise<any> {
+  private handleError(error: any): Observable<any> {
+    // tslint:disable-next-line:prefer-const
+    let errMsg = error.message || 'Server error';
     console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    return Observable.throw(errMsg);
   }
 }

@@ -1,6 +1,8 @@
-export class ProductImage{
-  id: number;
-  title: string;
-  description: string;
-  url: string;
+export class ProductImage {
+  constructor(
+    public id: number,
+    public title: string,
+    public description: string,
+    public url: string,
+  ) { }
 }
