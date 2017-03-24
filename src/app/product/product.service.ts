@@ -7,7 +7,7 @@ import { Product } from '../models/product';
 
 @Injectable()
 export class ProductService {
-  private productsUrl: string = 'http://localhost:3000/products';
+  protected productsUrl: string = 'http://localhost:3000/products';
 
   constructor(private http: Http) { }
 

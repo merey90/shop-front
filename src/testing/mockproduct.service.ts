@@ -6,13 +6,13 @@ import { Product } from './../app/models/product';
 import { ProductService } from './../app/product/product.service';
 import { Observable } from 'rxjs/Observable';
 
-const PRODUCTCOLOR: ProductColor = new ProductColor(1, '#f44242', 'RED');
-const PRODUCTSIZE: ProductSize = new ProductSize(1, 'XL');
-const PRODUCTIMAGES: ProductImage[] = [
-  new ProductImage(1, 'ImageTitle', 'ImageDescription', 'link'),
+export const PRODUCTCOLOR: ProductColor = new ProductColor(1, '#f44242', 'RED');
+export const PRODUCTSIZE: ProductSize = new ProductSize(1, 'XL');
+export const PRODUCTIMAGES: ProductImage[] = [
+  new ProductImage(1, 'ImageTitle1', 'ImageDescription1', 'link'),
   new ProductImage(2, 'ImageTitle2', 'ImageDescription2', 'link2')
 ];
-const PRODUCTVARIETIES: ProductVariety[] = [
+export const PRODUCTVARIETIES: ProductVariety[] = [
   new ProductVariety(1, 1300, 1, null, null, 0, 0, PRODUCTIMAGES, PRODUCTSIZE, PRODUCTCOLOR),
   new ProductVariety(2, 1200, 1, null, null, 0, 0, PRODUCTIMAGES, PRODUCTSIZE, PRODUCTCOLOR)
 ];
@@ -30,10 +30,10 @@ export const PRODUCTS: Product[] = [
   new Product(10, 'Title10', 'Description10', true, 2300, 0, 564663, PRODUCTVARIETIES)
 ];
 
-export class MockProductService implements ProductService {
-  private productsUrl: string;
-
+export class MockProductService {
+  products: Product[];
   getProducts(): Observable<Product[]> {
-
+    this.products = PRODUCTS;
+    return Observable.of(this.products);
   }
 }
