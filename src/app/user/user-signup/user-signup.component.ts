@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../session/session.service';
+import { SessionService } from './../../session/session.service';
 import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { UserSignupActivateGuard } from './user-signup.activate-guard';
 import { Location } from '@angular/common';
