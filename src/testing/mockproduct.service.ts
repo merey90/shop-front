@@ -38,8 +38,8 @@ export class MockProductService {
     return Observable.of(this.products);
   }
 
-  getProduct(): Observable<Product> {
-    this.product = PRODUCTS[0];
+  getProduct(id: number): Observable<Product> {
+    this.product = PRODUCTS[2];
     return Observable.of(this.product);
   }
 }

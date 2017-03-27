@@ -6,8 +6,6 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 import { routedComponents, ProductRoutingModule } from './product-routing.module';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -16,6 +14,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     FlexLayoutModule.forRoot(),
     MaterialModule.forRoot()
   ],
-  declarations: [routedComponents, ProductDetailComponent]
+  declarations: [routedComponents]
 })
 export class ProductModule { }

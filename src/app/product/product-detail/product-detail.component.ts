@@ -17,13 +17,26 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getProductDetails();
+    this.route.params.subscribe(p => this.getProductDetails(p && p['id']));
   }
 
-  getProductDetails(): void {
-    this.route.params
-      .switchMap((params: Params) => this.productService.getProduct(+params['id']))
-      .subscribe((product: Product) => this.product = product);
+  getProductDetails(id: string): void {
+    if (!id) {
+      console.log('MUST PROVIDE ID');
+      return;
+    }
+
+    this.productService.getProduct(+id).subscribe(product => {
+      if (product) {
+        this.product = product;
+      } else {
+        this.gotoList();
+      }
+    });
+  }
+
+  gotoList() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
 }
