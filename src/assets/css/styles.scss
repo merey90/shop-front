@@ -3,12 +3,13 @@
 @import 'material.icons';
 @import "variables";
 @import "sizes.fonts";
+@import "helpers";
 @import "app.component";
 @import "product-list.component";
 @import "product-detail.component";
-// @import "helpers";
+
 // @import "session.component";
 // @import "home.component";
 // @import "product.component";
-// @import "user-signup.component";
+@import "user-signup.component";
 // @import "user-confirmation.component";

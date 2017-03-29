@@ -1,48 +1,51 @@
-<form class="form sign-up-form" [formGroup]="signupForm" (ngSubmit)="submitRegister()">
-  <div class="form-group" *ngIf="formStatus">
-    <div class="alert" [ngClass]="{'alert-danger': formStatus==='error', 'alert-success': formStatus==='success' }" role="alert">
-      <strong>{{formStatus | uppercase }}!</strong> {{formMessage}}
+<md-card class="sign-up-form">
+  <form class="form form-vertical" [formGroup]="signupForm" (ngSubmit)="submitRegister()">
+    <div class="form-group" *ngIf="formStatus">
+      <div class="alert" [ngClass]="{'alert-danger': formStatus==='error', 'alert-success': formStatus==='success' }" role="alert">
+        <strong>{{formStatus | uppercase }}!</strong> {{formMessage}}
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <input type="email" class="form-control" [formControl]="input_email" placeholder="Email" name="email" required="true" />
-    <div class="validation-messages text-danger" [hidden]="(input_email.valid || input_email.untouched) && !formSubmitAttempt">
-      <p [hidden]="!input_email.hasError('required')">
+    <md-input-container dividerColor="{{formSubmitAttempt ? 'warn':'primary'}}">
+      <input mdInput type="email" [formControl]="input_email" placeholder="Email" required="true" />
+      <md-hint class="validation-messages text-warn" [hidden]="(input_email.valid || input_email.untouched) && !formSubmitAttempt">
+        <span [hidden]="!input_email.hasError('required')">
         Email is required
-      </p>
-      <p [hidden]="!input_email.hasError('pattern')">
+      </span>
+        <span [hidden]="!input_email.hasError('pattern')">
         Pattern mismatch
-      </p>
-    </div>
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" [formControl]="password" placeholder="Password" name="password" />
-    <div class="validation-messages text-danger" [hidden]="(password.valid || password.untouched) && !formSubmitAttempt">
-      <p [hidden]="!password.hasError('minlength')">
+      </span>
+      </md-hint>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput type="password" [formControl]="password" placeholder="Password" name="password" required="true" />
+      <md-hint class="validation-messages text-warn" [hidden]="(password.valid || password.untouched) && !formSubmitAttempt">
+        <span [hidden]="!password.hasError('minlength')">
         Password must have minimum 8 chars
-      </p>
-      <p [hidden]="!password.hasError('required')">
+      </span>
+        <span [hidden]="!password.hasError('required')">
         Password is required
-      </p>
-      <p [hidden]="!password.hasError('pattern')">
+      </span>
+        <span [hidden]="!password.hasError('pattern')">
         Pattern mismatch
-      </p>
-    </div>
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" [formControl]="password_confirm" placeholder="Password confirmation" name="password_confirmation"
-    />
-    <div class="validation-messages text-danger" [hidden]="(password_confirm.valid || password_confirm.untouched) && !formSubmitAttempt">
-      <p [hidden]="!password_confirm.hasError('required')">
+      </span>
+      </md-hint>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput type="password" [formControl]="password_confirm" placeholder="Password confirmation" name="password_confirmation"
+        required="true" />
+      <md-hint class="validation-messages text-warn" [hidden]="(password_confirm.valid || password_confirm.untouched) && !formSubmitAttempt">
+        <span [hidden]="!password_confirm.hasError('required')">
         Password is required
-      </p>
-      <p [hidden]="!password_confirm.hasError('mismatchedPassword')">
+      </span>
+        <span [hidden]="!password_confirm.hasError('mismatchedPassword')">
         Password confirmation mismatch
-      </p>
+      </span>
+      </md-hint>
+    </md-input-container>
+    <div class="form-group">
+      <button md-raised-button type="submit" color="primary" [disabled]="submitBtnDisabled"> Sign Up </button>
+      <button md-raised-button type="button" (click)="cancel()"> Cancel </button>
     </div>
-  </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-success" [disabled]="submitBtnDisabled"> Sign Up </button>
-    <button type="button" class="btn btn-default" (click)="cancel()"> Cancel </button>
-  </div>
-</form>
+
+  </form>
+</md-card>

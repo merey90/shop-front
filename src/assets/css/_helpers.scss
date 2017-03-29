@@ -1,91 +1,19 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-body,
-html {
-  color: #5a5a5a;
-  height: 100%;
+[hidden] {
+  display: none !important;
 }
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-  margin-top: $navbar-margin-top--mobile;
 
-  .navbar {
-    margin-bottom: 0;
-    height: $navbar-height;
-
-    .navbar-brand {
-      padding-left: 50px;
-
-      > img {
-        position: absolute;
-        width: 35px;
-        top: 6px;
-        left: 13px;
-      }
-    }
-
-    .container {
-      width: auto;
-    }
-
-    > .navbar-collapse {
-      background-color: #222;
-      border-radius: 0;
-
-      .navbar-nav {
-        > li > a {
-          padding: 10px 15px;
-          @media (min-width: $screen-sm-min) {
-            padding: 15px;
-          }
-        }
-      }
-      @media (min-width: $screen-sm-min) {
-        border-radius: 4px;
-      }
-    }
-    @media (min-width: $screen-sm-min) {
-      border-radius: 4px;
-    }
-  }
-
-  > .container {
-    padding-right: 0;
-    padding-left: 0;
-    @media (min-width: $screen-sm-min) {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-  }
-  @media (min-width: $screen-sm-min) {
-    margin-top: $navbar-margin-top;
+.form-vertical{
+  display: flex;
+  flex-direction: column;
+  md-input-container{
+    margin-bottom: 16px;
   }
 }
 
-.main-wrapper {
-  min-height: 100%;
-  margin-top: $main-wrapper-margin-top;
-  padding-top: $main-wrapper-padding-top--mobile;
-  @media (min-width: $screen-sm-min) {
-    padding-top: $main-wrapper-padding-top;
-  }
+.text-warn{
+  color: map-get($warn , 500);
 }
 
-footer {
-  height: $footer-height;
-}
-
-.validation-messages {
-  border-left: 5px solid $state-danger-text;
-  font-size: $font-size-small;
-  padding-left: 10px;
-  margin-top: 5px;
+.form{
+  width: 100%;
 }
