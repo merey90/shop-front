@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
 import { RouterModule } from '@angular/router';
@@ -32,6 +33,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     FlexLayoutModule.forRoot(),
     MaterialModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     SessionService,

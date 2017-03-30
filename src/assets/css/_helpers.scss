@@ -17,3 +17,28 @@
 .form{
   width: 100%;
 }
+
+snack-bar-container{
+  simple-snack-bar{
+    button{
+      margin-left: 30px !important;
+    }
+  }
+  &.success{
+    simple-snack-bar{
+      color: map-get($accent , A400 ) !important;
+      button{
+        border: 1px solid map-get($accent , A400 ) !important;
+      }
+    }
+  }
+  &.error{
+    background-color: map-get($warn, 300) !important;
+    simple-snack-bar{
+      color: map-get(map-get($warn, "contrast"), 300 ) !important;
+      button{
+        border: 1px solid map-get(map-get($warn, "contrast"), 300 ) !important;
+      }
+    }
+  }
+}

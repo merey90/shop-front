@@ -1,12 +1,10 @@
 <md-card class="sign-up-form">
-  <form class="form form-vertical" [formGroup]="signupForm" (ngSubmit)="submitRegister()">
-    <div class="form-group" *ngIf="formStatus">
-      <div class="alert" [ngClass]="{'alert-danger': formStatus==='error', 'alert-success': formStatus==='success' }" role="alert">
-        <strong>{{formStatus | uppercase }}!</strong> {{formMessage}}
-      </div>
-    </div>
-    <md-input-container dividerColor="{{formSubmitAttempt ? 'warn':'primary'}}">
-      <input mdInput type="email" [formControl]="input_email" placeholder="Email" required="true" />
+  <form class="form form-vertical" [formGroup]="signupForm" (ngSubmit)="submitRegister($event)">
+    <h1 color="primary">
+      Sign Up
+    </h1>
+    <md-input-container dividerColor="{{(input_email.valid || input_email.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
+      <input mdInput type="email" [formControl]="input_email" placeholder="Email" required="true" autocomplete="false" />
       <md-hint class="validation-messages text-warn" [hidden]="(input_email.valid || input_email.untouched) && !formSubmitAttempt">
         <span [hidden]="!input_email.hasError('required')">
         Email is required
@@ -16,8 +14,9 @@
       </span>
       </md-hint>
     </md-input-container>
-    <md-input-container>
-      <input mdInput type="password" [formControl]="password" placeholder="Password" name="password" required="true" />
+    <md-input-container dividerColor="{{(password.valid || password.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
+      <input mdInput type="password" [formControl]="password" placeholder="Password" name="password" required="true" autocomplete="false"
+      />
       <md-hint class="validation-messages text-warn" [hidden]="(password.valid || password.untouched) && !formSubmitAttempt">
         <span [hidden]="!password.hasError('minlength')">
         Password must have minimum 8 chars
@@ -30,9 +29,9 @@
       </span>
       </md-hint>
     </md-input-container>
-    <md-input-container>
+    <md-input-container dividerColor="{{(password_confirm.valid || password_confirm.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
       <input mdInput type="password" [formControl]="password_confirm" placeholder="Password confirmation" name="password_confirmation"
-        required="true" />
+        required="true" autocomplete="false" />
       <md-hint class="validation-messages text-warn" [hidden]="(password_confirm.valid || password_confirm.untouched) && !formSubmitAttempt">
         <span [hidden]="!password_confirm.hasError('required')">
         Password is required
@@ -44,8 +43,7 @@
     </md-input-container>
     <div class="form-group">
       <button md-raised-button type="submit" color="primary" [disabled]="submitBtnDisabled"> Sign Up </button>
-      <button md-raised-button type="button" (click)="cancel()"> Cancel </button>
+      <button md-raised-button type="button" (click)="cancel($event)"> Cancel </button>
     </div>
-
   </form>
 </md-card>
