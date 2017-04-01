@@ -1,0 +1,7 @@
+<ul *ngIf="!sessionService.userSignedIn()" class="list-horizontal">
+  <li routerLinkActive="active"><a md-button routerLink="users/signup">Sign up</a></li>
+  <li routerLinkActive="active"><a md-button routerLink="users/login">Log in</a></li>
+</ul>
+<ul *ngIf="sessionService.userSignedIn()" class="list-horizontal">
+  <li><button md-button (click)="logOut()">{{ email | cutdomain }}</button></li>
+</ul>

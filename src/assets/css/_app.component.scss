@@ -143,15 +143,17 @@ textarea {
     align-content: center;
     align-items: center;
     padding: 0 15px;
-
+    transition: all 0.4s ease-in-out;
     .mat-input-wrapper {
       padding-bottom: 0;
       padding-top: 6px;
     }
-  }
-
-  .session-links{
-    min-width: 205px;
+    md-input-container{
+      width: 100%;
+    }
+    &.ng-dirty:not(.ng-invalid), &:active, &:hover{
+      flex: 10 1 auto;
+    }
   }
 }
 

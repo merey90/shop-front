@@ -42,3 +42,7 @@ snack-bar-container{
     }
   }
 }
+
+h1[color="primary"]{
+  color: map-get($primary , 500 );
+}

@@ -99,10 +99,9 @@ export class UserSignupComponent implements OnInit {
 
   showSnackbar(message: string, status: string, email: string = ''): void {
     const snackBarRef = this.snackBar.open(
-      this.formMessage,
+      message,
       status === 'success' ? 'Check email' : 'Close',
       {
-        duration: 10000,
         extraClasses: [status]
       }
     );

@@ -10,21 +10,25 @@ import 'hammerjs';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
-// import { CutdomainPipe } from './pipes/cutdomain.pipe';
+import { CutdomainPipe } from './pipes/cutdomain.pipe';
 
 import { ProductService } from './product/product.service';
 import { SessionService } from './session/session.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { NavSessionComponent } from './session/nav-session/nav-session.component';
+import { SidenavSessionComponent } from './session/sidenav-session/sidenav-session.component';
 // import { SessionComponent } from './session/session.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavSessionComponent,
+    SidenavSessionComponent,
     // SessionComponent,
-    // CutdomainPipe,
+    CutdomainPipe
   ],
   imports: [
     BrowserModule,

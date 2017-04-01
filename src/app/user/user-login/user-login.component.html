@@ -1,0 +1,38 @@
+<md-card class="log-in-form">
+  <form class="form form-vertical" [formGroup]="loginForm" (ngSubmit)="submitLogin($event)">
+    <h1 color="primary">
+      Log In
+    </h1>
+    <md-input-container dividerColor="{{(input_email.valid || input_email.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
+      <input mdInput type="email" [formControl]="input_email" placeholder="Email" required="true" autocomplete="false" />
+      <md-hint class="validation-messages text-warn" [hidden]="(input_email.valid || input_email.untouched) && !formSubmitAttempt">
+        <span [hidden]="!input_email.hasError('required')">
+        Email is required
+      </span>
+        <span [hidden]="!input_email.hasError('pattern')">
+        Pattern mismatch
+      </span>
+      </md-hint>
+    </md-input-container>
+    <md-input-container dividerColor="{{(password.valid || password.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
+      <input mdInput type="password" [formControl]="password" placeholder="Password" name="password" required="true" autocomplete="false"
+      />
+      <md-hint class="validation-messages text-warn" [hidden]="(password.valid || password.untouched) && !formSubmitAttempt">
+        <span [hidden]="!password.hasError('minlength')">
+        Password must have minimum 8 chars
+      </span>
+        <span [hidden]="!password.hasError('required')">
+        Password is required
+      </span>
+        <span [hidden]="!password.hasError('pattern')">
+        Pattern mismatch
+      </span>
+      </md-hint>
+    </md-input-container>
+    <div class="form-group">
+      <button md-raised-button type="submit" color="primary" [disabled]="submitBtnDisabled"> Log In </button>
+      <a md-raised-button routerLink="/users/signup" color="accent"> Sign Up </a>
+      <button md-raised-button type="button" (click)="cancel($event)"> Cancel </button>
+    </div>
+  </form>
+</md-card>

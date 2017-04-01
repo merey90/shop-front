@@ -1,0 +1,9 @@
+.session-links{
+  min-width: 205px;
+  li.active{
+    a{
+      background-color: map-get($primary , 800);
+      color: map-get(map-get($primary, contrast), 800);
+    }
+  }
+}
