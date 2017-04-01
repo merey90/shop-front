@@ -27,15 +27,12 @@ export class ProductService {
     if (res.status < 200 || res.status >= 300) {
       throw new Error('Bad response status: ' + res.status);
     }
-    // tslint:disable-next-line:prefer-const
-    let body = res.json();
-    // return body.data || { };
+    const body = res.json();
     return body || {};
   }
 
   private handleError(error: any): Observable<any> {
-    // tslint:disable-next-line:prefer-const
-    let errMsg = error.message || 'Server error';
+    const errMsg = error.message || 'Server error';
     console.error('An error occurred', error);
     return Observable.throw(errMsg);
   }

@@ -26,7 +26,10 @@ export class SessionComponent implements OnInit {
     if (this.sessionService.userSignedIn()) {
       this.sessionService.validateToken().subscribe(
         res => this.email = this.sessionService.currentUserData.email,
-        error => console.log(error)
+        error => {
+          let errorMessages = '';
+          error.json().errors.forEach(val => errorMessages += val);
+        }
       );
     }
 

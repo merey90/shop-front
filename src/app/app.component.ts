@@ -57,8 +57,9 @@ export class AppComponent implements OnInit {
             this.showSnackbar('Successfully confirmed your email!', 'success');
           },
           error => {
-            console.log(error);
-            this.showSnackbar('Error', 'error');
+            let errorMessages = '';
+            error.json().errors.forEach(val => errorMessages += val);
+            this.showSnackbar(errorMessages, 'error');
           }
         );
       }
