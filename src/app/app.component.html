@@ -1,6 +1,7 @@
 <md-sidenav-container class="main-sidenav-container">
-  <md-sidenav #sidenav class="main-sidenav" mode="push" opened="false" fxHide fxShow.xs>
-    <nav role="navigation">
+  <md-sidenav #sidenav class="main-sidenav" mode="push" opened="false">
+    <app-sidenav-session></app-sidenav-session>
+    <nav role="navigation" fxHide fxShow.xs>
       <ul class="">
         <li>HOME</li>
         <li>STORE</li>
@@ -26,36 +27,35 @@
   <!-- /wrapper -->
 
   <footer>Copyright © <span class="current-year">{{currentYear}}</span> Design Merey Zholdas</footer>
+  <header>
+    <div class="nav-container">
+      <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
+      <md-icon>menu</md-icon>
+    </button>
+      <a md-button routerLink="." class="nav-brand text-display-1">
+       Knack!
+    </a>
+      <nav class="nav nav-links" role="navigation" fxHide.xs>
+        <ul class="list-horizontal">
+          <li routerLinkActive="active"><a md-button routerLink="products">Products</a></li>
+          <li routerLinkActive="active"><a md-button routerLink="contacts">Contacts</a></li>
+        </ul>
+      </nav>
+      <form fxHide.xs class="form-horizontal search-form" [formGroup]="searchForm" (ngSubmit)="submitSearch()">
+        <md-input-container dividerColor="accent.a400" class="example-full-width">
+          <input mdInput placeholder="Search..." type="text" [formControl]="input_search" />
+        </md-input-container>
 
+        <button color="primary" md-button type="submit" class="search-btn">
+        <md-icon>search</md-icon>
+      </button>
+      </form>
+      <nav class="nav session-links" role="navigation" fxHide.xs>
+        <app-nav-session [sidenav]="sidenav"></app-nav-session>
+      </nav>
+    </div>
+  </header>
 </md-sidenav-container>
 <button mdTooltip="Shopping Cart" md-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()" fxHide.lg fxHide.xl>
   <md-icon>shopping_cart</md-icon>
 </button>
-<header>
-  <div class="nav-container">
-    <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
-      <md-icon>menu</md-icon>
-    </button>
-    <a md-button routerLink="." class="nav-brand text-display-1">
-       Knack!
-    </a>
-    <nav class="nav nav-links" role="navigation" fxHide.xs>
-      <ul class="list-horizontal">
-        <li routerLinkActive="active"><a md-button routerLink="products">Products</a></li>
-        <li routerLinkActive="active"><a md-button routerLink="contacts">Contacts</a></li>
-      </ul>
-    </nav>
-    <form fxHide.xs class="form-horizontal search-form" [formGroup]="searchForm" (ngSubmit)="submitSearch()">
-      <md-input-container dividerColor="accent.a400" class="example-full-width">
-        <input mdInput placeholder="Search..." type="text" [formControl]="input_search" />
-      </md-input-container>
-
-      <button color="primary" md-button type="submit" class="search-btn">
-        <md-icon>search</md-icon>
-      </button>
-    </form>
-    <nav class="nav session-links" role="navigation" fxHide.xs>
-      <app-nav-session></app-nav-session>
-    </nav>
-  </div>
-</header>

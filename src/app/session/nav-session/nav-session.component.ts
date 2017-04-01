@@ -1,5 +1,6 @@
+import { MdSidenav } from '@angular/material/sidenav';
 import { SessionService } from './../session.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-session',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavSessionComponent implements OnInit {
   email: string;
+  @Input() sidenav: MdSidenav;
+
   constructor(
     private sessionService: SessionService
   ) { }
@@ -26,6 +29,7 @@ export class NavSessionComponent implements OnInit {
 
   showSideNav() {
     console.log('show side nav');
+    this.sidenav.open();
   }
 
   logOut() {
