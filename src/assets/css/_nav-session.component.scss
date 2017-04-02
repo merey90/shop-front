@@ -7,3 +7,18 @@
     }
   }
 }
+
+.session-nav-menu-btn{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  .avatar{
+    max-height: 50px;
+    background-color: map-get($primary , 300 );
+    border-radius: 30px;
+  }
+}
+
+.session-nav-menu{
+  // width: 100%;
+}

@@ -2,6 +2,17 @@
   <li routerLinkActive="active"><a md-button routerLink="users/signup">Sign up</a></li>
   <li routerLinkActive="active"><a md-button routerLink="users/login">Log in</a></li>
 </ul>
-<ul *ngIf="sessionService.userSignedIn()" class="list-horizontal">
-  <li><button md-button (click)="showSideNav()">{{ email | cutdomain }}</button></li>
-</ul>
+<button class="session-nav-menu-btn" *ngIf="sessionService.userSignedIn()" md-button [mdMenuTriggerFor]="menu">
+  <img class="avatar" src="/assets/images/person.png"/>
+  <span>{{ email | cutdomain }}</span>
+</button>
+<md-menu class="session-nav-menu" #menu="mdMenu">
+  <a routerLink="users/profile" md-menu-item>
+    <md-icon> account_box </md-icon>
+    <span>Profile</span>
+  </a>
+  <button md-menu-item (click)="logOut()">
+    <md-icon> exit_to_app </md-icon>
+    <span>Log Out</span>
+  </button>
+</md-menu>
