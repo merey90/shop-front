@@ -1,24 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
-
+import { ProductVariety } from './../models/product-variety';
 import { Observable } from 'rxjs/Observable';
-
-import { Product } from '../models/product';
+import { Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ProductService {
-  protected path: string = 'http://localhost:3000/products';
+export class ShoppingCartService {
+  protected path: string = 'http://localhost:3000/shopping-carts';
 
   constructor(private http: Http) { }
 
-  getProducts(): Observable<Product[]> {
+  getShoppingCart(): Observable<ProductVariety[]> {
     return this.http.get(this.path)
-      .map(this.extractData)
-      .catch(this.handleError);
-  }
-
-  getProduct(id: number): Observable<Product> {
-    return this.http.get(this.path + '/' + id)
       .map(this.extractData)
       .catch(this.handleError);
   }

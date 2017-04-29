@@ -1,9 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { MdSidenav } from '@angular/material/sidenav';
 import { ObservableMedia } from '@angular/flex-layout';
 import { ActivatedRoute } from '@angular/router';
-import { MdSnackBar, MdSnackBarRef, SimpleSnackBar } from '@angular/material';
+import { MdSnackBar, MdSnackBarRef, SimpleSnackBar, MdSidenav } from '@angular/material';
 
 import { SessionService } from './session/session.service';
 

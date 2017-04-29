@@ -1,13 +1,12 @@
+import { CustomMaterialModule } from './shared/custom-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
-import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { CutdomainPipe } from './pipes/cutdomain.pipe';
@@ -19,7 +18,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavSessionComponent } from './session/nav-session/nav-session.component';
 import { SidenavSessionComponent } from './session/sidenav-session/sidenav-session.component';
-// import { SessionComponent } from './session/session.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -27,17 +26,17 @@ import { SidenavSessionComponent } from './session/sidenav-session/sidenav-sessi
     HomeComponent,
     NavSessionComponent,
     SidenavSessionComponent,
-    // SessionComponent,
-    CutdomainPipe
+    CutdomainPipe,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
-    FlexLayoutModule.forRoot(),
-    MaterialModule.forRoot(),
-    BrowserAnimationsModule
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    CustomMaterialModule
   ],
   providers: [
     SessionService,

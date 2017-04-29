@@ -1,20 +1,15 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
 
 import { routedComponents, UserRoutingModule } from './user-routing.module';
 import { UserSignupActivateGuard } from './user-signup/user-signup.activate-guard';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     UserRoutingModule,
-    ReactiveFormsModule,
-    FlexLayoutModule.forRoot(),
-    MaterialModule.forRoot(),
+    ReactiveFormsModule
   ],
   declarations: [routedComponents],
   providers: [UserSignupActivateGuard]

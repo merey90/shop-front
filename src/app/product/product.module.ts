@@ -1,18 +1,15 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { MdCardModule } from '@angular/material';
 
 import { routedComponents, ProductRoutingModule } from './product-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     ProductRoutingModule,
-    FlexLayoutModule.forRoot(),
-    MaterialModule.forRoot()
+    MdCardModule
   ],
   declarations: [routedComponents]
 })
