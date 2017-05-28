@@ -10,27 +10,14 @@
     </nav>
   </md-sidenav>
 
-  <div class="wrapper">
-    <md-sidenav-container class="main-container">
-      <router-outlet></router-outlet>
-
-      <md-sidenav class="shopping-cart-sidenav" #shoppingCart mode="push" opened="false" align="end">
-        <app-shopping-cart></app-shopping-cart>
-      </md-sidenav>
-    </md-sidenav-container>
-
-  </div>
-  <!-- /wrapper -->
-
-  <footer>Copyright © <span class="current-year">{{currentYear}}</span> Design Merey Zholdas</footer>
   <header>
     <div class="nav-container">
       <button md-button class="nav-menu-button" (click)="sidenav.toggle()" fxHide fxShow.xs>
-      <md-icon>menu</md-icon>
-    </button>
+        <md-icon>menu</md-icon>
+      </button>
       <a md-button routerLink="." class="nav-brand text-display-1">
-       Knack!
-    </a>
+       BOSSY
+      </a>
       <nav class="nav nav-links" role="navigation" fxHide.xs>
         <ul class="list-horizontal">
           <li routerLinkActive="active"><a md-button routerLink="products">Products</a></li>
@@ -51,6 +38,20 @@
       </nav>
     </div>
   </header>
+
+  <div class="wrapper">
+    <md-sidenav-container class="main-container">
+      <router-outlet></router-outlet>
+
+      <md-sidenav class="shopping-cart-sidenav" #shoppingCart mode="push" opened="false" align="end">
+        <app-shopping-cart></app-shopping-cart>
+      </md-sidenav>
+    </md-sidenav-container>
+
+  </div>
+  <!-- /wrapper -->
+
+  <footer>Copyright © <span class="current-year">{{currentYear}}</span> Design Merey Zholdas</footer>
 </md-sidenav-container>
 <button mdTooltip="Shopping Cart" md-fab class="shopping-cart-fab" (click)="shoppingCart.toggle()" fxHide.lg fxHide.xl>
   <md-icon>shopping_cart</md-icon>

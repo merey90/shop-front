@@ -21,7 +21,8 @@ export class SessionService extends Angular2TokenService {
     if (
       registerData['confirm_success_url'] != null
       && typeof registerData['confirm_success_url'] !== 'undefined'
-      && registerData['confirm_success_url'].length > 0) {
+      && registerData['confirm_success_url'].length > 0
+    ) {
       confirm_success_url = registerData['confirm_success_url'];
     }
     const body = JSON.stringify({

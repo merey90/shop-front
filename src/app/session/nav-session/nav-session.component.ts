@@ -1,3 +1,4 @@
+import { UserService } from './../../user/user.service';
 import { SessionService } from './../session.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -16,13 +17,20 @@ export class NavSessionComponent implements OnInit {
     if (this.sessionService.userSignedIn()) {
       this.sessionService.validateToken().subscribe(
         res => this.email = this.sessionService.currentUserData.email,
-        error => console.log(error)
+        error => {
+          console.log(error);
+          this.sessionService.signOut();
+        }
       );
     }
 
     this.sessionService.email.filter(x => typeof x === 'string').subscribe(
       (email: string) => this.email = email
     );
+
+    console.log(this.sessionService.userSignedIn());
+    console.log(this.sessionService.currentUserData);
+    console.log(this.sessionService.currentAuthHeaders);
   }
 
   logOut() {

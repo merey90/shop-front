@@ -3,7 +3,7 @@
     <h1 color="primary">
       Log In
     </h1>
-    <md-input-container dividerColor="{{(input_email.valid || input_email.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
+    <md-input-container color="{{(input_email.valid || input_email.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
       <input mdInput type="email" [formControl]="input_email" placeholder="Email" required="true" autocomplete="false" />
       <md-hint class="validation-messages text-warn" [hidden]="(input_email.valid || input_email.untouched) && !formSubmitAttempt">
         <span [hidden]="!input_email.hasError('required')">
@@ -14,7 +14,7 @@
       </span>
       </md-hint>
     </md-input-container>
-    <md-input-container dividerColor="{{(password.valid || password.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
+    <md-input-container color="{{(password.valid || password.untouched) && !formSubmitAttempt ? 'primary':'warn'}}">
       <input mdInput type="password" [formControl]="password" placeholder="Password" name="password" required="true" autocomplete="false"
       />
       <md-hint class="validation-messages text-warn" [hidden]="(password.valid || password.untouched) && !formSubmitAttempt">
