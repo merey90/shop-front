@@ -6,7 +6,8 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html'
+  templateUrl: './product-detail.component.html',
+  styles: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;

@@ -4,7 +4,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-session',
-  templateUrl: './nav-session.component.html'
+  templateUrl: './nav-session.component.html',
+  styles: ['./nav-session.component.scss']
 })
 export class NavSessionComponent implements OnInit {
   email: string;
@@ -27,10 +28,6 @@ export class NavSessionComponent implements OnInit {
     this.sessionService.email.filter(x => typeof x === 'string').subscribe(
       (email: string) => this.email = email
     );
-
-    console.log(this.sessionService.userSignedIn());
-    console.log(this.sessionService.currentUserData);
-    console.log(this.sessionService.currentAuthHeaders);
   }
 
   logOut() {

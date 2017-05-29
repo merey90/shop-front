@@ -1,18 +1,229 @@
-@import "noto.fonts";
-@import "material.theme";
-@import 'material.icons';
 @import "variables";
-@import "sizes.fonts";
-@import "helpers";
-@import "app.component";
-@import "product-list.component";
-@import "product-detail.component";
-@import "nav-session.component";
-@import "sidenav-session.component";
-// @import "session.component";
-// @import "home.component";
-// @import "product.component";
-@import "user-signup.component";
-@import "user-login.component";
-// @import "user-confirmation.component";
-@import "shopping-cart.component";
+/* Layout */
+html {
+  display: flex;
+  flex-direction: column;
+}
+/* IE fix */
+app-root,
+body {
+  display: flex;
+  /* crée un contexte flex pour ses enfants */
+  flex-direction: column;
+  /* affichage vertical */
+  min-height: 100vh;
+  /* toute la hauteur du viewport (compatible IE9+) */
+}
+
+.main-sidenav-container {
+  min-height: 100vh;
+
+  > .mat-sidenav-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.mat-sidenav-content {
+  overflow: initial !important;
+}
+.wrapper {
+  display: block;
+  /* IE fix */
+  flex: 1 1 auto;
+  /* occupe la hauteur restante */
+  display: flex;
+  /* crée un contexte flex pour ses enfants */
+  flex-direction: row;
+  /* affichage horizontal */
+}
+
+.content {
+  display: block;
+  /* IE fix */
+  flex: 1;
+  /* occupe la largeur restante */
+}
+
+.shopping-cart-sidenav {
+  width: 220px;
+}
+/* Responsive */
+@media (max-width: 640px) {
+  app-root,
+  body {
+    min-height: 0;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .content {
+    flex-basis: auto;
+  }
+
+  nav {
+    width: auto;
+    order: 1;
+  }
+}
+/* Decoration */
+header {
+  background-color: map-get($primary, 500);
+  color: map-get(map-get($primary, "contrast"), 500);
+  margin: 0;
+  padding: 0 15px;
+  position: fixed;
+  top: 0;
+  height: $navbar-height;
+  left: 0;
+  right: 0;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  font-family: "Noto";
+  font-size: 1.1em;
+}
+
+footer {
+  padding: 10px;
+  margin: 0;
+  background: map-get($primary, 500);
+  color: map-get(map-get($primary, "contrast"), 500);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: "Noto";
+}
+
+.mat-button,
+.mat-fab,
+.mat-icon-button,
+.mat-mini-fab,
+.mat-raised-button {
+  font-family: Roboto, "Noto" !important;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: $navbar-height;
+  overflow: hidden;
+
+  .mat-button {
+    @include text-headline();
+  }
+
+  .nav-brand {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+
+    &.mat-button {
+      @include text-display-1();
+    }
+  }
+
+  .search-btn {
+    padding: 0 15px;
+    min-width: 0 !important;
+    border: 1px solid map-get($primary, 500);
+  }
+
+  .search-form {
+    background-color: map-get($primary, 200);
+    align-self: stretch;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0 15px;
+    transition: all 0.4s ease-in-out;
+    .mat-input-wrapper {
+      padding-bottom: 0;
+      padding-top: 6px;
+    }
+    md-input-container{
+      width: 100%;
+    }
+    &.ng-dirty:not(.ng-invalid), &:active, &:hover{
+      flex: 10 1 auto;
+    }
+  }
+}
+
+.nav-menu-button {
+  padding: 0 !important;
+  min-width: 50px !important;
+  cursor: pointer;
+}
+
+.list-horizontal {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  li {
+    float: left;
+  }
+}
+
+.shopping-cart-fab {
+  position: fixed !important;
+  bottom: 60px;
+  right: 20px;
+}
+
+.wrapper {
+  padding-top: $navbar-height;
+}
+
+.main-container {
+  padding: 15px;
+  flex: 1 1 auto;
+}
+
+md-card {
+  margin-bottom: 15px;
+}
+
+.nav {
+  align-self: stretch;
+
+  li,
+  ul {
+    height: 100%;
+  }
+
+  li > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.main-sidenav {
+  width: 320px;
+}
+
+.nav-links {
+  flex: 1 1 auto;
+  li.active{
+    a{
+      background-color: map-get($primary , 800);
+      color: map-get(map-get($primary, contrast), 800);
+    }
+  }
+}
+
+.shopping-cart-sidenav{
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}

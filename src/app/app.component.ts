@@ -8,7 +8,8 @@ import { SessionService } from './session/session.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styles: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   @ViewChild('shoppingCart') shoppingCart: MdSidenav;

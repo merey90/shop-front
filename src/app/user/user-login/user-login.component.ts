@@ -6,7 +6,8 @@ import { SessionService } from './../../session/session.service';
 
 @Component({
   selector: 'app-user-login',
-  templateUrl: './user-login.component.html'
+  templateUrl: './user-login.component.html',
+  styles: ['user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
   EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
