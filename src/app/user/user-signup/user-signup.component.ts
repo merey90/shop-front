@@ -17,7 +17,7 @@ function duplicatePassword(input: FormControl) {
 @Component({
   selector: 'app-user-signup',
   templateUrl: './user-signup.component.html',
-  styles: ['./user-signup.component.scss']
+  styleUrls: ['./user-signup.component.scss']
 })
 export class UserSignupComponent implements OnInit {
   EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;

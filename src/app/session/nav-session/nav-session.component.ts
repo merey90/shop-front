@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-nav-session',
   templateUrl: './nav-session.component.html',
-  styles: ['./nav-session.component.scss']
+  styleUrls: ['./nav-session.component.scss']
 })
 export class NavSessionComponent implements OnInit {
   email: string;
