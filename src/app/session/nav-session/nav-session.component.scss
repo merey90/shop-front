@@ -2,6 +2,9 @@
 
 :host {
   min-width: 205px;
+  height: 100%;
+  display: block;
+  align-self: stretch;
   li.active{
     a{
       background-color: map-get($primary , 800);
@@ -19,8 +22,4 @@
     background-color: map-get($primary , 300 );
     border-radius: 30px;
   }
-}
-
-.session-nav-menu{
-  // width: 100%;
 }

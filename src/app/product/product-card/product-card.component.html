@@ -1,3 +1,8 @@
-<div class="product-card" *ngIf="product">
-  {{product.title}}
+<div class="product-card" *ngIf="product" (click)="goToProduct()">
+
+  <div class="product-desc">
+    <h3>{{product.title}}</h3>
+    <p>{{product.description}}</p>
+  </div>
+  <button md-button class="product-card-btn" (click)="putToCart($event)">Add to Cart</button>
 </div>

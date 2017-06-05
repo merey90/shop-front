@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Product } from './../../models/product';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,10 +11,19 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    console.log(this.product);
   }
 
+  goToProduct(): void {
+    this.router.navigate(['/products', this.product.id]);
+  }
+
+  putToCart(event) {
+    event.stopPropagation();
+    console.log(this.product);
+  }
 }
